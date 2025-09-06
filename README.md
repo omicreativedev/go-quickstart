@@ -21,13 +21,13 @@ The Go programming language, often referred to as Golang, was created at Google 
 
 | Feature | Go | Notes |
 | :--- | :--- | :--- |
-| Simplicity & Readability | Minimalist syntax. No classes or inheritance. Unified code style enforced by gofmt. | Less complex than C++ and Java but more explicit and structured than Python and JavaScript. |
-| Concurrency Model | Lightweight threads (called goroutines) and Channels share memory by communicating. | Much simpler and lighter weight than Java and C++ threads but more complex and integrated than Python's async/await. |
-| Build & Deployment | Compiled to a single, static binary. No external dependencies or VM required. Fast compilation by design. | Simpler deployment than Java/JVM or C#/.NET. Faster compilation than C++/Rust. more performant and standalone than interpreted languages like Python/JS. |
-| Error Handling | Explicit error return values. Functions return (result, error). No traditional exceptions. | More complex but explicit and predictable than exception-driven flow e.g. Java/C#/Python. |
-| Tooling | Unified built-in tools (go fmt, go test, go doc, go get). | Standardized and integrated, unlike the fragmented third-party ecosystems of Python/JavaScript. |
-| Type System | Statically typed with Structural Interfaces and Generics | Interfaces are more flexible and implicit than Java's nominal ones. Generics arrived later than in Java/C#. Safer than dynamic Python/JS. |
-| Memory Management | Garbage Collected. Automatic memory management. | Major safety advantage over manual management in C/C++. Simpler and lower-latency than the highly tunable GC in the JVM. |
+| Simplicity & Readability | Minimal syntax. No classes or inheritance. Unified code style enforced. | Less complex than C++ and Java but more explicit and structured than Python and JavaScript. |
+| Concurrency Model | Lightweight threads (called goroutines) and Channels share memory. | Much simpler and lighter than Java and C++ threads but more complex and integrated than Python async. |
+| Build & Deployment | Compiled to one static binary. No external dependencies. Fast compilation by design. | Simpler deployment than Java or C. Faster compilation than C++. More standalone than interpreted languages (Pythin, JS, etc.) |
+| Error Handling | Explicit error return values. No traditional exceptions. | More complex but more predictable than exception driven flow e.g. Java/C#/Python etc. |
+| Tooling | Unified built-in tools | Standardized and integrated, unlike third-party ecosystems of other languages. |
+| Type System | Statically typed with structural interfaces and generics | Interfaces are more flexible and implicit than Java. Generics arrived later than in Java. Safer than dynamic interpreted languages. |
+| Memory Management | Garbage Collected. Automatic memory management. | Safer than manual management in C/C++. Lower latency than Java. |
 
 ### What is Go good for?
 
