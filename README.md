@@ -1,5 +1,3 @@
-
-
 # Welcome to Go Quickstart
 
 This repository is for my CS-330 class at Simmons University where my goal is to create a simple straightfoward tutorial for getting started using Go for students already comfortable with at least one programming language. This is a work-in-progress so there will be some errors, omissions and incomplete sections. When the project is complete and the semester is over, I will tag it **complete** and the repo will allow pull requests. I'm currently working in Windows 11, and while I try to give instructions for Mac and Linux, I can't test them all on my machine and so I'm mainly going by documentation sources. Your miles may vary. Until then, if you have any issues or commentary, please see the [Discussion](https://github.com/omicreativedev/go-quickstart/discussions) section of the repository.
@@ -14,11 +12,10 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 
 <!-- Testing Browser IDE -->
 <!-- Testing Drafts between Wip and Main -->
-------------------------
+
+## <!-- Changes from local computer cloned repo -->
+
 🔸Part 1
-
-
-
 
 # History of the Go Programming Language
 
@@ -28,7 +25,7 @@ If you want an interesting read about the beginnings of Go, check out the offici
 
 [^1]: [Go FAQ: History](https://go.dev/doc/faq#history)
 [^2]: [Go FAQ: Creating a New Language](https://go.dev/doc/faq#creating_a_new_language)
-[^3]: [The Go Programming Language Specification (Preface)](https://go.dev/ref/spec )
+[^3]: [The Go Programming Language Specification (Preface)](https://go.dev/ref/spec)
 [^4]: [Official Go Announcement](https://opensource.googleblog.com/2009/11/hey-ho-lets-go.html)
 
 ### Important Features of Go
@@ -39,7 +36,7 @@ If you want an interesting read about the beginnings of Go, check out the offici
 -->
 
 - Simplicity and Minimalism
-<br>There are no classes or inheritance[^5], exceptions[^6], or higher order functions[^7] in Go. These are achieved with workarounds.
+  <br>There are no classes or inheritance[^5], exceptions[^6], or higher order functions[^7] in Go. These are achieved with workarounds.
 - Built-in Concurrency Primitives: Goroutines and Channels[^8]
 - Fast Compilation to a Single, Static Binary[^9]
 - Explicit Error Handling[^10]
@@ -60,7 +57,6 @@ A full tour of Go by Russ Cox is available on YouTube [here](https://www.youtube
 [^12]: [The How and Why of Go, Part 1: Tooling](https://okigiveup.net/tutorials/the-how-and-why-of-go-part-1-tooling/)
 [^13]: [A Guide to the Go Garbage Collector](https://go.dev/doc/gc-guide)
 [^14]: [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)
-
 
 ### What is Go good for?
 
@@ -87,7 +83,7 @@ A full tour of Go by Russ Cox is available on YouTube [here](https://www.youtube
 - [Caddy](https://github.com/caddyserver/caddy) An open-source web server with automatic HTTPS.
 - [Syncthing](https://github.com/syncthing/syncthing) A continuous real-time file synchronization program.
 - [Dgraph](https://github.com/dgraph-io/dgraph) A distributed and transactional native GraphQL database.
- 
+
 # Installation and Setup
 
 ### Installing Go
@@ -100,9 +96,11 @@ The first step is to download and install Go. You can get the download [here](ht
 2. You can change the location of your installation as needed. After installing, you will need to close and reopen any open command prompts.
 3. Verify that you've installed Go. In Windows, click the Start menu. In the menu's search box, type cmd, then press the Enter key.
 4. In the Command Prompt window that appears, type the following command:
+
 ```bash
 > go version
 ```
+
 5. Confirm that the command prints the installed version of Go.
 </details>
 
@@ -111,9 +109,11 @@ The first step is to download and install Go. You can get the download [here](ht
 1. Open the package file you downloaded and follow the prompts to install Go.
 2. The package should put the /usr/local/go/bin directory in your PATH environment variable. You may need to restart any open Terminal sessions for the change to take effect.
 3. Verify that you've installed Go by opening a command prompt and typing the following command:
+
 ```bash
 $ go version
 ```
+
 4. Confirm that the command prints the installed version of Go.
 </details>
 
@@ -121,29 +121,37 @@ $ go version
 
 1. Remove any previous Go installation by deleting the /usr/local/go folder (if it exists)
 2. Extract the archive you just downloaded into /usr/local, creating a fresh Go tree in /usr/local/go:
+
 ```
 $ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
 ```
+
 Warning: Do not untar the archive into an existing /usr/local/go tree. This is known to produce broken Go installations.
 
 3. Add /usr/local/go/bin to the PATH environment variable:
-You can do this by adding the following line to your $HOME/.profile or /etc/profile (for a system-wide installation):
+   You can do this by adding the following line to your $HOME/.profile or /etc/profile (for a system-wide installation):
+
 ```
 export PATH=$PATH:/usr/local/go/bin
 ```
+
 Note: Changes made to a profile file may not apply until the next time you log into your computer.
 To apply the changes immediately, just run the shell commands directly or execute them from the profile using a command such as source $HOME/.profile.
 
 4. Verify that you've installed Go by opening a command prompt and typing the following command:
+
 ```
 $ go version
 ```
+
 Confirm that the command prints the installed version of Go.
+
 </details>
 
 <sub>_Source: [https://go.dev/doc/install](https://go.dev/doc/install)_</sub>
 
 ### Choosing an IDE
+
 [GoLand by Jetbrains](https://www.jetbrains.com/go/) is an IDE from JetBrains that offers a dedicated and feature-rich experience for Go development. Since it's designed specifically for Go, it has a deep understanding of the language and provides quality code suggestions, refactoring support, and integrated tooling for debugging and testing. Students can use all of Jetbrains IDEs (including GoLand) for free with [Github's Student Developer Pack](https://www.jetbrains.com/academy/student-pack/) for the length of their studies.
 
 [Vim Go](https://go.dev/gopls/editor/vim) is a keyboard based text editor that can be enhanced with plugins like vim-go. It's a great option for advanced users and experts but has a steep learning curve for beginners. It's ideal for those who prefer a terminal based workflow or a Unix style interface. Vim is fast, customizable, and good for rapid development.
@@ -166,34 +174,46 @@ Microsoft has provided a link to [this helpful video](https://www.youtube.com/wa
 # Creating Your First Go Project in VSCode
 
 #### Perequisites:
+
 - Go installed and working in your console
 - VSCode installed
 - Go official VSCode extension installed
 
- 1. Open Visual Studio Code and launch a new terminal using Terminal > New Terminal
- 2. Create a folder for your project
+1.  Open Visual Studio Code and launch a new terminal using Terminal > New Terminal
+2.  Create a folder for your project
+
 ```
 mkdir my-first-go-project
 ```
+
 3. Go to the folder using cd
+
 ```
 cd my-first-go-project
 ```
+
 And, navigate to it using File > Open Folder...
 
 4. Create your first module. This creates a go.mod file that tracks your project's dependencies.
+
 ```
 go mod init my-first-go-project
 ```
+
 5. Create a package folder.
+
 ```
 mkdir hello
 ```
+
 6. Navigate to the package folder you just created.
+
 ```
 cd hello
 ```
+
 7. Create a file named main.go in the hello folder:
+
 ```Go
 package main
 
@@ -203,26 +223,35 @@ func main() {
     fmt.Println("Hello, World!")
 }
 ```
+
 8. Run the file in the terminal
+
 ```
 go run hello/main.go
 ```
+
 Or click Run > Run Without Debugging
 
 9. Compile your file into an executable (Windows)
+
 ```
 go build -o hello-app.exe hello/main.go
 ```
+
 10. Run your executable
 
 On Mac/Linux
+
 ```
 ./hello-app
 ```
+
 On Windows
+
 ```
 .\hello-app.exe
 ```
+
 The complete project structure should look like this:
 
 my-first-go-project/
@@ -231,7 +260,7 @@ my-first-go-project/
 
 ├── hello/
 
-│   └── main.go
+│ └── main.go
 
 └── hello-app.exe
 
@@ -271,6 +300,7 @@ Go has an advanced feature call go directives that attach to comments in Go. The
 # Go Learning Resources
 
 #### Official Sources
+
 - **[go.dev](https://go.dev/)**
   - [go.dev/play/](https://go.dev/play/) The Go playground for writing, running, and sharing code online.
   - [go.dev/doc/](https://go.dev/doc/) The official documentation for the Go programming language.
@@ -291,21 +321,25 @@ Go has an advanced feature call go directives that attach to comments in Go. The
 - [W3schools.com/go/](https://www.w3schools.com/go/index.php)
 
 #### Tutorials
+
 - [Exercism.org](https://exercism.org/tracks/go)
 - [Gophercises.com](https://gophercises.com/)
 
 #### Books
+
 - [go101.org](https://go101.org/)
 - [Learn Go With Tests](https://quii.gitbook.io/learn-go-with-tests/)
-- [Spaceship Go](https://blasrodri.github.io/spaceship-go-gh-pages/) by 
+- [Spaceship Go](https://blasrodri.github.io/spaceship-go-gh-pages/) by
 - [How to Code in Go](https://assets.digitalocean.com/books/how-to-code-in-go.pdf) by Digital Ocean
 - [Go from the Beginning](https://leanpub.com/go-from-the-beginning) by Chris Noring and [Code Repository](https://github.com/softchris/golang-book)
 - [Anti-Textbook Go Book](https://leanpub.com/antitextbookGo/) by (???) and [Code Repository](https://github.com/thewhitetulip/web-dev-golang-anti-textbook)
 
 #### Videos
+
 - [youtube.com/c/Justforfunc](https://youtube.com/c/Justforfunc)
 - [Go From The Beginning Youtube Playlist](https://www.youtube.com/playlist?list=PLRbYLREdOhfnLJl0xJxKEPe4BhlDU66Zj)
 
 #### Other
+
 - [Gophercises with Calhoun](https://courses.calhoun.io/courses/cor_gophercises)
 - [Algorithms in Go](https://www.calhoun.io/lets-learn-algorithms/)
