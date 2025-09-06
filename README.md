@@ -10,12 +10,6 @@ Side by Side Markdown Editor: [Dillinger.io](https://dillinger.io/)
 
 Hosting: [Render.com](https://render.com/) _Free Tier_
 
-<!-- Testing Browser IDE -->
-<!-- Testing Drafts between Wip and Main -->
-<!-- Changes from local computer cloned repo -->
-
-Delete this
-
 ---
 
 🔸Part 1
