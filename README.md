@@ -176,9 +176,9 @@ go run hello/main.go
 ```
 Or click Run > Run Without Debugging
 
-9. Compile your file into an executable
+9. Compile your file into an executable (Windows)
 ```
-go build -o hello-app hello/main.go
+go build -o hello-app.exe hello/main.go
 ```
 10. Run your executable
 
@@ -188,7 +188,7 @@ On Mac/Linux
 ```
 On Windows
 ```
-hello-app.exe
+.\hello-app.exe
 ```
 The complete project structure should look like this:
 
@@ -202,7 +202,7 @@ my-first-go-project/
 
 └── hello-app
 
-View the full example [here]()
+View the full example [here](https://github.com/omicreativedev/go-quickstart/tree/main/my-first-go-project)
 
 
 # Go Learning Resources
