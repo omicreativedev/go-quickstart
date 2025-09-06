@@ -23,6 +23,8 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 
 The Go programming language, often referred to as Golang, was created at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson as a direct response to the frustrations experienced in software development within the company.[^1] The main catalyst for its creation was the difficult nature of using existing languages for massive systems work, lengthy compilation times for languages like C and the complexity of distributed systems built in languages like Java.[^2] The designers were also motivated by a desire to improve the scale of development for large teams of programmers working on shared codebases.[^3] Officially announced in 2009 as an open-source project, Go was designed to be a simple language that emphasized ease of use for modern hardware but with the power of other languages already in use at the company.[^4]
 
+If you want an interesting read about the beginnings of Go, check out the official [Go Spec Blob on Github](https://github.com/golang/go/blob/18c5b488a3b2e218c0e0cf2a7d4820d9da93a554/doc/go_spec) by Robert Griesemer himself.
+
 [^1]: [Go FAQ: History](https://go.dev/doc/faq#history)
 [^2]: [Go FAQ: Creating a New Language](https://go.dev/doc/faq#creating_a_new_language)
 [^3]: [The Go Programming Language Specification (Preface)](https://go.dev/ref/spec )
