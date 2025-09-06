@@ -1,1 +1,164 @@
-# go-quickstart
+# Welcome to Go Quickstart
+
+
+
+
+
+# History of the Go Programming Language
+
+The Go programming language, often referred to as Golang, was conceived at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson as a direct response to the frustrations experienced in software development within the company. The main catalyst for its creation was the difficult nature of existing languages for massive systems work, lengthy compilation times for languages like C and the perceived complexity of distributed systems built in languages like Java. Officially announced in 2009 as an open-source project, Go was designed to be a simple language but with the power of C and Java that emphasized ease of use for modern hardware.
+
+### Important Features of Go
+
+| Feature | Go | Notes |
+| :--- | :--- | :--- |
+| Simplicity & Readability | Minimalist syntax. No classes or inheritance. Unified code style enforced by gofmt. | Less complex than C++ and Java but more explicit and structured than Python and JavaScript. |
+| Concurrency Model | Lightweight threads (called goroutines) and Channels share memory by communicating. | Much simpler and lighter weight than Java and C++ threads but more complex and integrated than Python's async/await. |
+| Build & Deployment | Compiled to a single, static binary. No external dependencies or VM required. Fast compilation by design. | Simpler deployment than Java/JVM or C#/.NET. Faster compilation than C++/Rust. more performant and standalone than interpreted languages like Python/JS. |
+| Error Handling | Explicit error return values. Functions return (result, error). No traditional exceptions. | More complex but explicit and predictable than exception-driven flow e.g. Java/C#/Python. |
+| Tooling | Unified built-in tools (go fmt, go test, go doc, go get). | Standardized and integrated, unlike the fragmented third-party ecosystems of Python/JavaScript. |
+| Type System | Statically typed with Structural Interfaces and Generics | Interfaces are more flexible and implicit than Java's nominal ones. Generics arrived later than in Java/C#. Safer than dynamic Python/JS. |
+| Memory Management | Garbage Collected. Automatic memory management. | Major safety advantage over manual management in C/C++. Simpler and lower-latency than the highly tunable GC in the JVM. |
+
+### What is Go good for?
+
+- Cloud-Native & Distributed Systems (Microservices)
+- Command-Line Interfaces (CLIs) & DevOps Tools
+- Web Servers & API Backends
+- Concurrent Network Services
+- Data Processing & Pipelines
+- Databases & Storage Systems
+- Cryptography & Security Tools
+- Embedded Systems & IoT
+- Scripting & Automation
+- Proxy and Load Balancer Infrastructure
+
+#### Famous Projects Created with Go
+
+- [Docker](https://github.com/docker/docker) A platform to develop, ship, and run applications in containers.
+- [Kubernetes](https://github.com/kubernetes/kubernetes) An open-source system for automating deployment of containerized applications.
+- [Hugo](https://github.com/gohugoio/hugo) A fast and modern static site generator.
+- [Terraform](https://github.com/hashicorp/terraform) A tool for building, changing, and versioning infrastructure.
+- [CockroachDB](https://github.com/cockroachdb/cockroach) A cloud-native, distributed SQL database.
+- [InfluxDB](https://github.com/influxdata/influxdb) An open-source time series database.
+- [Ethereum Go (Geth)](https://github.com/ethereum/go-ethereum) The official Go implementation of the Ethereum protocol.
+- [Caddy](https://github.com/caddyserver/caddy) An open-source web server with automatic HTTPS.
+- [Syncthing](https://github.com/syncthing/syncthing) A continuous real-time file synchronization program.
+- [Dgraph](https://github.com/dgraph-io/dgraph) A distributed and transactional native GraphQL database.
+ 
+# Installation and Setup
+
+### Installing Go
+
+The first step is to download and install Go. You can get the download [here](https://go.dev/doc/install).
+
+<details open><summary>Windows</summary>
+
+1. Open the MSI file you downloaded and follow the prompts to install Go.
+2. You can change the location of your installation as needed. After installing, you will need to close and reopen any open command prompts.
+3. Verify that you've installed Go. In Windows, click the Start menu. In the menu's search box, type cmd, then press the Enter key.
+4. In the Command Prompt window that appears, type the following command:
+```bash
+> go version
+```
+5. Confirm that the command prints the installed version of Go.
+</details>
+
+<details><summary>Mac</summary>
+
+1. Open the package file you downloaded and follow the prompts to install Go.
+2. The package should put the /usr/local/go/bin directory in your PATH environment variable. You may need to restart any open Terminal sessions for the change to take effect.
+3. Verify that you've installed Go by opening a command prompt and typing the following command:
+```bash
+$ go version
+```
+4. Confirm that the command prints the installed version of Go.
+</details>
+
+<details><summary>Linux</summary>
+
+1. Remove any previous Go installation by deleting the /usr/local/go folder (if it exists)
+2. Extract the archive you just downloaded into /usr/local, creating a fresh Go tree in /usr/local/go:
+```
+$ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
+```
+Warning: Do not untar the archive into an existing /usr/local/go tree. This is known to produce broken Go installations.
+
+3. Add /usr/local/go/bin to the PATH environment variable:
+You can do this by adding the following line to your $HOME/.profile or /etc/profile (for a system-wide installation):
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+Note: Changes made to a profile file may not apply until the next time you log into your computer.
+To apply the changes immediately, just run the shell commands directly or execute them from the profile using a command such as source $HOME/.profile.
+
+4. Verify that you've installed Go by opening a command prompt and typing the following command:
+```
+$ go version
+```
+Confirm that the command prints the installed version of Go.
+</details>
+
+<sub>_Source: [https://go.dev/doc/install](https://go.dev/doc/install)_</sub>
+
+### Choosing an IDE
+[GoLand by Jetbrains](https://www.jetbrains.com/go/) is an IDE from JetBrains that offers a dedicated and feature-rich experience for Go development. Since it's designed specifically for Go, it has a deep understanding of the language and provides quality code suggestions, refactoring support, and integrated tooling for debugging and testing. Students can use all of Jetbrains IDEs (including GoLand) for free with [Github's Student Developer Pack](https://www.jetbrains.com/academy/student-pack/) for the length of their studies.
+
+[Vim Go](https://go.dev/gopls/editor/vim) is a keyboard based text editor that can be enhanced with plugins like vim-go and can be transformed into a lean but effect Go workspace for advanced users and experts. Ideal for those who prefer a terminal based workflow or a Unix style interface, Vim is fast, customizable, and great for rapid development.
+
+[VSCode by Microsoft](https://code.visualstudio.com/docs/languages/go) is a powerful editor that supports multiple languages, making it easy to develop full stack Go applications without switching IDEs. It features a marketplace of extensions including an official Go extension, deep Git integration, an AI co-pilot, and more to make it a great all in one solution for doing front-end, back-end, databases, APIs, and Documentation all within the same workspace.
+
+#### Installing VSCode Go Extension
+
+The Official Go VSCode extension provides features designed to help any beginner get started with Go, including IntelliSense code suggestions and semantic syntax highlighting. It also offers tools like hover information for detailed insights on keywords, variables, and structs, alongside efficient keyboard shortcuts for code navigation and file formatting. Developers also benefit from a custom Go test UI, as well as support for package import fixing, refactoring, and debugging. A complete list of features and explanations are available on the [VSCode Go extension Github repository](https://github.com/golang/vscode-go/wiki/features).
+
+1. Be sure you've installed Go on your computer and confirm its working.
+2. [Download VSCode](https://visualstudio.microsoft.com/free-developer-offers/) and install it on your preferred drive.
+3. Open VSCode after installing.
+4. Navigate to the [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.go) page on Microsoft Marketplace and click install with VSCode open.
+5. It will ask you if you'd like to install the extension. Follow the prompts to install.
+6. Close your program and restart your computer.
+
+Microsoft has provided a link to [this helpful video](https://www.youtube.com/watch?v=1MXIGYrMk80) by Google Open Studios on setting up your Go environment in VSCode and creating your first file.
+
+# Go Learning Resources
+
+### Official Sources
+- **[go.dev](https://go.dev/)**
+  - [go.dev/play/](https://go.dev/play/) The Go playground for writing, running, and sharing code online.
+  - [go.dev/doc/](https://go.dev/doc/) The official documentation for the Go programming language.
+  - [go.dev/doc/effective_go](https://go.dev/doc/effective_go) Official documentation of clean coding in Go.
+  - [go.dev/doc/faq](https://go.dev/doc/faq) Frequently Asked Questions (and answers) about the Go language.
+  - [go.dev/ref/spec](https://go.dev/ref/spec) The official Go language specification.
+  - [go.dev/blog/](https://go.dev/blog/) The official Go blog for news and in-depth article.
+  - [pkg.go.dev](https://pkg.go.dev/) The official Go package discovery and reference site.
+- **[Golang.org](https://tour.golang.org)**
+- [github.com/golang](https://github.com/golang) The official GitHub organization for the Go project.
+
+### Websites
+
+- [Gobyexample.com](https://gobyexample.com/)
+- [Golangbot.com](https://golangbot.com/learn-golang-series/)
+- [Practical-go-lessons.com](https://www.practical-go-lessons.com/)
+- [Geeksforgeeks.org/go-language](https://www.geeksforgeeks.org/go-language/)
+- [W3schools.com/go/](https://www.w3schools.com/go/index.php)
+
+### Tutorials
+- [Exercism.org](https://exercism.org/tracks/go)
+- [Gophercises.com](https://gophercises.com/)
+
+### Books
+- [go101.org](https://go101.org/)
+- [Learn Go With Tests](https://quii.gitbook.io/learn-go-with-tests/)
+- [Spaceship Go](https://blasrodri.github.io/spaceship-go-gh-pages/) by 
+- [How to Code in Go](https://assets.digitalocean.com/books/how-to-code-in-go.pdf) by Digital Ocean
+- [Go from the Beginning](https://leanpub.com/go-from-the-beginning) by Chris Noring and [Code Repository](https://github.com/softchris/golang-book)
+- [Anti-Textbook Go Book](https://leanpub.com/antitextbookGo/) by (???) and [Code Repository](https://github.com/thewhitetulip/web-dev-golang-anti-textbook)
+
+### Videos
+- [youtube.com/c/Justforfunc](https://youtube.com/c/Justforfunc)
+- [Go From The Beginning Youtube Playlist](https://www.youtube.com/playlist?list=PLRbYLREdOhfnLJl0xJxKEPe4BhlDU66Zj)
+
+### Other
+- [Gophercises with Calhoun](https://courses.calhoun.io/courses/cor_gophercises)
+- [Algorithms in Go](https://www.calhoun.io/lets-learn-algorithms/)
