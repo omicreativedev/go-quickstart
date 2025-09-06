@@ -1,6 +1,6 @@
 # Welcome to Go Quickstart
 
-This repository is for my CS-330 class at Simmons University where my goal is to create a simple straightfoward tutorial for getting started using Go for students already comfortable with at least one programming language. This is a work-in-progress so there will be some errors, omissions and incomplete sections. When the project is complete and the semester is over, I will tag it **complete** and the repo will allow pull requests. Until then, if you have any issues or commentary, please see the Discussion section of the repository.
+This repository is for my CS-330 class at Simmons University where my goal is to create a simple straightfoward tutorial for getting started using Go for students already comfortable with at least one programming language. This is a work-in-progress so there will be some errors, omissions and incomplete sections. When the project is complete and the semester is over, I will tag it **complete** and the repo will allow pull requests. I'm currently working in Windows 11, and while I try to give instructions for Mac and Linux, I can't test them all on my machine and so I'm mainly going by documentation sources. Your miles may vary. Until then, if you have any issues or commentary, please see the [Discussion](https://github.com/omicreativedev/go-quickstart/discussions) section of the repository.
 
 If you need to reach me, message me on [LinkedIn](https://www.linkedin.com/in/sshunamon/)
 
@@ -200,7 +200,7 @@ my-first-go-project/
 
 │   └── main.go
 
-└── hello-app
+└── hello-app.exe
 
 View the full example [here](https://github.com/omicreativedev/go-quickstart/tree/main/my-first-go-project)
 
