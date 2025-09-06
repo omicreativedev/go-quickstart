@@ -1,12 +1,21 @@
 # Welcome to Go Quickstart
 
+This repository is for my CS-330 class at Simmons University where my goal is to create a simple straightfoward tutorial for getting started using Go for students already comfortable with at least one programming language. This is a work-in-progress so there will be some errors, omissions and incomplete sections. When the project is complete and the semester is over, I will tag it **complete** and the repo will allow pull requests. Until then, if you have any issues or commentary, please see the Discussion section of the repository.
 
+If you need to reach me, message me on [LinkedIn](https://www.linkedin.com/in/sshunamon/)
 
+Credits:
+
+Side by Side Markdown Editor: [Dillinger.io](https://dillinger.io/)
+
+Hosting: [Render.com](https://render.com/) _Free Tier_
 
 
 # History of the Go Programming Language
 
-The Go programming language, often referred to as Golang, was conceived at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson as a direct response to the frustrations experienced in software development within the company. The main catalyst for its creation was the difficult nature of existing languages for massive systems work, lengthy compilation times for languages like C and the perceived complexity of distributed systems built in languages like Java. Officially announced in 2009 as an open-source project, Go was designed to be a simple language but with the power of C and Java that emphasized ease of use for modern hardware.
+The Go programming language, often referred to as Golang, was created at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson as a direct response to the frustrations experienced in software development within the company. The main catalyst for its creation was the difficult nature of using existing languages for massive systems work, lengthy compilation times for languages like C and the complexity of distributed systems built in languages like Java. Officially announced in 2009 as an open-source project, Go was designed to be a simple language that emphasized ease of use for modern hardware but with the power of older languages already in use at the company.
+
+
 
 ### Important Features of Go
 
