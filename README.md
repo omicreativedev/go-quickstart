@@ -12,8 +12,9 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 
 <!-- Testing Browser IDE -->
 <!-- Testing Drafts between Wip and Main -->
+<!-- Changes from local computer cloned repo -->
 
-## <!-- Changes from local computer cloned repo -->
+---
 
 🔸Part 1
 
