@@ -264,8 +264,8 @@ in Go
 */
 
 ```
-> [ALERT!]
-> Go has an advanced feature call go directives that attach to comments in Go. Therefore, don't use **//go:** when making regular single line comments. For more information on go directives and other comment conventions, learn more in the [Go Comments Documentation](https://go.dev/wiki/Comments) and [Go Doc Comments](https://go.dev/doc/comment).
+
+Go has an advanced feature call go directives that attach to comments in Go. Therefore, don't use **//go:** when making regular single line comments. For more information on go directives and other comment conventions, learn more in the [Go Comments Documentation](https://go.dev/wiki/Comments) and [Go Doc Comments](https://go.dev/doc/comment).
 
 # Go Learning Resources
 
