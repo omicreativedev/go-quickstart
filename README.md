@@ -121,9 +121,84 @@ The Official Go VSCode extension provides features designed to help any beginner
 
 Microsoft has provided a link to [this helpful video](https://www.youtube.com/watch?v=1MXIGYrMk80) by Google Open Studios on setting up your Go environment in VSCode and creating your first file.
 
+# Creating Your First Go Project in VSCode
+
+#### Perequisites:
+- Go installed and working in your console
+- VSCode installed
+- Go official VSCode extension installed
+
+ 1. Open Visual Studio Code and launch a new terminal using Terminal > New Terminal
+ 2. Create a folder for your project
+```
+mkdir my-first-go-project
+```
+3. Go to the folder using cd
+```
+cd my-first-go-project
+```
+And, navigate to it using File > Open Folder...
+
+4. Create your first module. This creates a go.mod file that tracks your project's dependencies.
+```
+go mod init my-first-go-project
+```
+5. Create a package folder.
+```
+mkdir hello
+```
+6. Navigate to the package folder you just created.
+```
+cd hello
+```
+7. Create a file named main.go in the hello folder:
+```
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+```
+8. Run the file in the terminal
+```
+go run hello/main.go
+```
+Or click Run > Run Without Debugging
+
+9. Compile your file into an executable
+```
+go build -o hello-app hello/main.go
+```
+10. Run your executable
+
+On Mac/Linux
+```
+./hello-app
+```
+On Windows
+```
+hello-app.exe
+```
+The complete project structure should look like this:
+
+my-first-go-project/
+
+├── go.mod
+
+├── hello/
+
+│   └── main.go
+
+└── hello-app
+
+View the full example [here]()
+
+
 # Go Learning Resources
 
-### Official Sources
+#### Official Sources
 - **[go.dev](https://go.dev/)**
   - [go.dev/play/](https://go.dev/play/) The Go playground for writing, running, and sharing code online.
   - [go.dev/doc/](https://go.dev/doc/) The official documentation for the Go programming language.
@@ -135,7 +210,7 @@ Microsoft has provided a link to [this helpful video](https://www.youtube.com/wa
 - **[Golang.org](https://tour.golang.org)**
 - [github.com/golang](https://github.com/golang) The official GitHub organization for the Go project.
 
-### Websites
+#### Websites
 
 - [Gobyexample.com](https://gobyexample.com/)
 - [Golangbot.com](https://golangbot.com/learn-golang-series/)
@@ -143,11 +218,11 @@ Microsoft has provided a link to [this helpful video](https://www.youtube.com/wa
 - [Geeksforgeeks.org/go-language](https://www.geeksforgeeks.org/go-language/)
 - [W3schools.com/go/](https://www.w3schools.com/go/index.php)
 
-### Tutorials
+#### Tutorials
 - [Exercism.org](https://exercism.org/tracks/go)
 - [Gophercises.com](https://gophercises.com/)
 
-### Books
+#### Books
 - [go101.org](https://go101.org/)
 - [Learn Go With Tests](https://quii.gitbook.io/learn-go-with-tests/)
 - [Spaceship Go](https://blasrodri.github.io/spaceship-go-gh-pages/) by 
@@ -155,10 +230,10 @@ Microsoft has provided a link to [this helpful video](https://www.youtube.com/wa
 - [Go from the Beginning](https://leanpub.com/go-from-the-beginning) by Chris Noring and [Code Repository](https://github.com/softchris/golang-book)
 - [Anti-Textbook Go Book](https://leanpub.com/antitextbookGo/) by (???) and [Code Repository](https://github.com/thewhitetulip/web-dev-golang-anti-textbook)
 
-### Videos
+#### Videos
 - [youtube.com/c/Justforfunc](https://youtube.com/c/Justforfunc)
 - [Go From The Beginning Youtube Playlist](https://www.youtube.com/playlist?list=PLRbYLREdOhfnLJl0xJxKEPe4BhlDU66Zj)
 
-### Other
+#### Other
 - [Gophercises with Calhoun](https://courses.calhoun.io/courses/cor_gophercises)
 - [Algorithms in Go](https://www.calhoun.io/lets-learn-algorithms/)
