@@ -30,8 +30,34 @@ The Go programming language, often referred to as Golang, was created at Google 
 
 ### Important Features of Go
 
+<!--
 > [!NOTE]
 > Unfinished
+-->
+
+- Simplicity and Minimalism
+<br>There are no classes or inheritance[^5], exceptions[^6], or higher order functions[^7] in Go. These are achieved with workarounds.
+- Built-in Concurrency Primitives: Goroutines and Channels[^8]
+- Fast Compilation to a Single, Static Binary[^9]
+- Explicit Error Handling[^10]
+- Composition over Inheritance[^11]
+- Built-in Tooling[^12]
+- Garbage Collection[^13]
+- Generics (Recent Addition)[^14]
+
+A full tour of Go by Russ Cox is available on YouTube [here](https://www.youtube.com/watch?v=ytEkHepK08c&t=620s).
+
+[^5]: [Golang #3: No Classes, No Inheritance — Just Structs & Methods, and It Works](https://medium.com/@wedevare/golang-3-no-classes-no-inheritance-just-structs-methods-and-it-works-4cd4c8cb45be)
+[^6]: [Why doesn’t Go have Exceptions?](https://blog.cubed.run/why-doesnt-go-have-exceptions-b9c16165d93d?gi=f43007b88b72)
+[^7]: [Generic Map, Filter and Reduce in Go](https://itnext.io/generic-map-filter-and-reduce-in-go-3845781a591c)
+[^8]: [Go Blog: Share Memory by Communicating](https://go.dev/blog/codelab-share)
+[^9]: [On Golang, “static” binaries, cross-compiling and plugins](https://medium.com/@diogok/on-golang-static-binaries-cross-compiling-and-plugins-1aed33499671)
+[^10]: [Mastering Error Handling in Go: A Guide to Explicit Error Handling](https://medium.com/@sanjay.krishna.m.27/mastering-error-handling-in-go-a-guide-to-explicit-error-handling-072eef6cf00d)
+[^11]: [Why did Golang Choose Composition as it’s base rather than Inheritance?](https://medium.com/deep-golang/why-golang-choose-composition-as-its-base-rather-than-inheritance-1225d22a4798)
+[^12]: [The How and Why of Go, Part 1: Tooling](https://okigiveup.net/tutorials/the-how-and-why-of-go-part-1-tooling/)
+[^13]: [A Guide to the Go Garbage Collector](https://go.dev/doc/gc-guide)
+[^14]: [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)
+
 
 ### What is Go good for?
 
