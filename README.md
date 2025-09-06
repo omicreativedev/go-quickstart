@@ -11,6 +11,12 @@ Side by Side Markdown Editor: [Dillinger.io](https://dillinger.io/)
 Hosting: [Render.com](https://render.com/) _Free Tier_
 
 
+------------------------
+🔸Part 1
+
+
+
+
 # History of the Go Programming Language
 
 The Go programming language, often referred to as Golang, was created at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson as a direct response to the frustrations experienced in software development within the company. The main catalyst for its creation was the difficult nature of using existing languages for massive systems work, lengthy compilation times for languages like C and the complexity of distributed systems built in languages like Java. Officially announced in 2009 as an open-source project, Go was designed to be a simple language that emphasized ease of use for modern hardware but with the power of older languages already in use at the company.
