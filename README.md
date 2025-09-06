@@ -1,3 +1,5 @@
+
+
 # Welcome to Go Quickstart
 
 This repository is for my CS-330 class at Simmons University where my goal is to create a simple straightfoward tutorial for getting started using Go for students already comfortable with at least one programming language. This is a work-in-progress so there will be some errors, omissions and incomplete sections. When the project is complete and the semester is over, I will tag it **complete** and the repo will allow pull requests. I'm currently working in Windows 11, and while I try to give instructions for Mac and Linux, I can't test them all on my machine and so I'm mainly going by documentation sources. Your miles may vary. Until then, if you have any issues or commentary, please see the [Discussion](https://github.com/omicreativedev/go-quickstart/discussions) section of the repository.
@@ -19,21 +21,17 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 
 # History of the Go Programming Language
 
-The Go programming language, often referred to as Golang, was created at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson as a direct response to the frustrations experienced in software development within the company. The main catalyst for its creation was the difficult nature of using existing languages for massive systems work, lengthy compilation times for languages like C and the complexity of distributed systems built in languages like Java. Officially announced in 2009 as an open-source project, Go was designed to be a simple language that emphasized ease of use for modern hardware but with the power of older languages already in use at the company.
+The Go programming language, often referred to as Golang, was created at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson as a direct response to the frustrations experienced in software development within the company.[^1] The main catalyst for its creation was the difficult nature of using existing languages for massive systems work, lengthy compilation times for languages like C and the complexity of distributed systems built in languages like Java.[^2] The designers were also motivated by a desire to improve the scale of development for large teams of programmers working on shared codebases.[^3] Officially announced in 2009 as an open-source project, Go was designed to be a simple language that emphasized ease of use for modern hardware but with the power of other languages already in use at the company.[^4]
 
-
+[^1]: [Go FAQ: History](https://go.dev/doc/faq#history)
+[^2]: [Go FAQ: Creating a New Language](https://go.dev/doc/faq#creating_a_new_language)
+[^3]: [The Go Programming Language Specification (Preface)](https://go.dev/ref/spec )
+[^4]: [Official Go Announcement](https://opensource.googleblog.com/2009/11/hey-ho-lets-go.html)
 
 ### Important Features of Go
 
-| Feature | Go | Notes |
-| :--- | :--- | :--- |
-| Simplicity & Readability | Minimal syntax. No classes or inheritance. Unified code style enforced. | Less complex than C++ and Java but more explicit and structured than Python and JavaScript. |
-| Concurrency Model | Lightweight threads (called goroutines) and Channels share memory. | Much simpler and lighter than Java and C++ threads but more complex and integrated than Python async. |
-| Build & Deployment | Compiled to one static binary. No external dependencies. Fast compilation by design. | Simpler deployment than Java or C. Faster compilation than C++. More standalone than interpreted languages (Pythin, JS, etc.) |
-| Error Handling | Explicit error return values. No traditional exceptions. | More complex but more predictable than exception driven flow e.g. Java/C#/Python etc. |
-| Tooling | Unified built-in tools | Standardized and integrated, unlike third-party ecosystems of other languages. |
-| Type System | Statically typed with structural interfaces and generics | Interfaces are more flexible and implicit than Java. Generics arrived later than in Java. Safer than dynamic interpreted languages. |
-| Memory Management | Garbage Collected. Automatic memory management. | Safer than manual management in C/C++. Lower latency than Java. |
+> [!NOTE]
+> Unfinished
 
 ### What is Go good for?
 
