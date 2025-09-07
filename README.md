@@ -189,7 +189,7 @@ mkdir my-first-go-project
 cd my-first-go-project
 ```
 
-And, navigate to it using File > Open Folder...
+Or, navigate to it using File > Open Folder...
 
 4. Create your first module. This creates a go.mod file that tracks your project's dependencies.
 
@@ -237,13 +237,13 @@ go build -o hello-app.exe hello/main.go
 
 10. Run your executable
 
-On Mac/Linux
+**On Mac/Linux**
 
 ```
 ./hello-app
 ```
 
-On Windows
+**On Windows**
 
 ```
 .\hello-app.exe
