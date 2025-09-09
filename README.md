@@ -10,8 +10,8 @@ Side by Side Markdown Editor: [Dillinger.io](https://dillinger.io/)
 
 Hosting: [Render.com](https://render.com/) _Free Tier_
 
----
 
+------------------------
 🔸Part 1
 
 # History of the Go Programming Language
