@@ -340,3 +340,6 @@ Go has an advanced feature call go directives that attach to comments in Go. The
 
 - [Gophercises with Calhoun](https://courses.calhoun.io/courses/cor_gophercises)
 - [Algorithms in Go](https://www.calhoun.io/lets-learn-algorithms/)
+
+------------------------
+🔸Part 2
