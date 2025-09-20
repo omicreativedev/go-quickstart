@@ -10,9 +10,29 @@ Side by Side Markdown Editor: [Dillinger.io](https://dillinger.io/)
 
 Hosting: [Render.com](https://render.com/) _Free Tier_
 
+------------------------
+# Table of Contents
+
+Part 1
+
+[History of the Go Programming Language](#history-of-the-go-programming-language)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Important Features of Go](#important-features-of-go)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[What is Go good for?](#what-is-go-good-for)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Famous Projects Created with Go](#famous-projects-created-in-go)<br>
+<br>
+[Installation and Setup](#installation-and-setup)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Installing Go](#installing-go)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Choosing an IDE](#choosing-an-ide)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Installing VSCode Go Extension](#installing-vscode-go-extension)<br>
+<br>
+[Creating Your First Go Project in VSCode](#creating-your-first-go-project-in-vscode)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hello World!](#hello-world)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Commenting Your Code](#commenting-your-code)<br>
+<br>
+[Go Learning Resources](#go-learning-resources)<br>
 
 ------------------------
-🔸Part 1
+![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
 
 # History of the Go Programming Language
 
@@ -53,20 +73,36 @@ A full tour of Go by Russ Cox is available on YouTube [here](https://www.youtube
 [^11]: [Why did Golang Choose Composition as it’s base rather than Inheritance?](https://medium.com/deep-golang/why-golang-choose-composition-as-its-base-rather-than-inheritance-1225d22a4798)
 [^12]: [The How and Why of Go, Part 1: Tooling](https://okigiveup.net/tutorials/the-how-and-why-of-go-part-1-tooling/)
 [^13]: [A Guide to the Go Garbage Collector](https://go.dev/doc/gc-guide)
-[^14]: [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)
+[^14]: [Tutorial: Getting Started with Generics](https://go.dev/doc/tutorial/generics)
 
 ### What is Go good for?
 
-- Cloud-Native & Distributed Systems (Microservices)
-- Command-Line Interfaces (CLIs) & DevOps Tools
-- Web Servers & API Backends
-- Concurrent Network Services
-- Data Processing & Pipelines
-- Databases & Storage Systems
-- Cryptography & Security Tools
-- Embedded Systems & IoT
-- Scripting & Automation
-- Proxy and Load Balancer Infrastructure
+- Cloud-Native & Distributed Systems (Microservices)[^15]
+- Command-Line Interfaces (CLIs)[^16] & DevOps Tools[^17]
+- Web Servers & API Backends[^18]
+- Concurrent Network Services[^19]
+- Data Processing & Pipelines[^20]
+- Databases & Storage Systems[^21]
+- Cryptography[^22] & Security Tools[^23]
+- Embedded Systems[^24] & IoT[^25]
+- Scripting[^26] & Automation[^27]
+- Proxy[^28] and Load Balancer Infrastructure[^29]
+
+[^15]: [Go for Cloud and Networked Services](https://go.dev/solutions/cloud)
+[^16]: [Command Line Interfaces in Go](https://go.dev/solutions/clis)
+[^17]: [Development Operations & Site Reliability Engineering](https://go.dev/solutions/devops)
+[^18]: [Building Restful API Go Tutorial](https://codezup.com/building-restful-api-go-tutorial/)
+[^19]: [Go Concurancy and Parallelism](https://www.geeksforgeeks.org/go-language/go-concurrency-and-parallelism/)
+[^20]: [Go Pipeline Patterns](https://www.golang101.com/advanced-concurrency-patterns/pipeline-patterns/)
+[^21]: [Databases Implemented in Go](https://awesome-go.com/databases-implemented-in-go/)
+[^22]: [Cyptography in Go](https://www.golang101.com/go-standard-library/cryptography/)
+[^23]: [10 Programming Languages for Cybersecurity](https://www.brillicaservices.com/blogs/cyber-security-programming-languages)
+[^24]: [Go Programming for Embedded Systems](https://rathorji.in/p/Go_Programming_for_Embedded_Systems)
+[^25]: [Microcontroller Development with Golang](https://medium.com/@alrazak/microcontroller-development-with-go-golang-d947f2141ebb)
+[^26]: [Embeddable Scripting Languages in Go](https://awesome-go.com/embeddable-scripting-languages/)
+[^27]: [20 Libraries for Automation in Golang](https://blog.devgenius.io/20-libraries-for-automation-with-golang-4935e13fac9c)
+[^28]: [Building a Proxy Server with Golang](https://www.privateproxyguide.com/building-a-proxy-server-with-go-golang-for-high-performance/)
+[^29]: [Built My Own Load Balancer in Go](https://medium.com/@yashbatra11111/built-my-own-load-balancer-in-go-and-benchmarked-it-against-haproxy-d22a763db8a8)
 
 #### Famous Projects Created with Go
 
@@ -170,7 +206,7 @@ Microsoft has provided a link to [this helpful video](https://www.youtube.com/wa
 
 # Creating Your First Go Project in VSCode
 
-#### Perequisites:
+**Perequisites:**
 
 - Go installed and working in your console
 - VSCode installed
@@ -340,3 +376,6 @@ Go has an advanced feature call go directives that attach to comments in Go. The
 
 - [Gophercises with Calhoun](https://courses.calhoun.io/courses/cor_gophercises)
 - [Algorithms in Go](https://www.calhoun.io/lets-learn-algorithms/)
+
+------------------------
+🔸Part 2
