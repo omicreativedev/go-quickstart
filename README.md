@@ -32,7 +32,7 @@ Part 1
 [Go Learning Resources](#go-learning-resources)<br>
 
 ------------------------
-🔸Part 1
+![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
 
 # History of the Go Programming Language
 
