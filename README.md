@@ -378,4 +378,4 @@ Go has an advanced feature call go directives that attach to comments in Go. The
 - [Algorithms in Go](https://www.calhoun.io/lets-learn-algorithms/)
 
 ------------------------
-🔸Part 2
+![Part 2](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_2.png?raw=true "Part 2")
