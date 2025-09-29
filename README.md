@@ -13,12 +13,12 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 ------------------------
 # Table of Contents
 
-Part 1
+### Part 1
 
 [History of the Go Programming Language](#history-of-the-go-programming-language)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Important Features of Go](#important-features-of-go)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[What is Go good for?](#what-is-go-good-for)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Famous Projects Created with Go](#famous-projects-created-in-go)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Famous Projects Created with Go](#famous-projects-created-with-go)<br>
 <br>
 [Installation and Setup](#installation-and-setup)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Installing Go](#installing-go)<br>
@@ -26,10 +26,39 @@ Part 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Installing VSCode Go Extension](#installing-vscode-go-extension)<br>
 <br>
 [Creating Your First Go Project in VSCode](#creating-your-first-go-project-in-vscode)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hello World!](#hello-world)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hello World!](#creating-your-first-go-project-in-vscode)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Commenting Your Code](#commenting-your-code)<br>
 <br>
 [Go Learning Resources](#go-learning-resources)<br>
+
+### Part 2
+
+[Type System and Variable Semantics](#type-system-and-variable-semantics)<br>
+[Data Types](#data-types)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Basic Types](#basic-types)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Boolean](#boolean)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Numeric](#numeric)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Strings](#strings)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Aliases](#aliases)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Composite Types](#composite-types)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Aggregate](#aggregate): Arrays, Structs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Reference](#reference): Slices, Maps, Channel, Pointer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Interface Types](#interface-types)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Complex Types](#complex-types)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Type Conversion](#type-conversion)<br>
+<br>
+[Syntax](#syntax)<br>
+[Reserved Words](#reserved-words)<br>
+[Variable Naming Requirements & Conventions](#variable-naming-requirements--conventions)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Required by Compiler](#required-by-compiler)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Encouraged by Professional and Community Standards](#encouraged-by-professional-and-community-standards)<br>
+[Composite Literals](#composite-literals)<br>
+[Type Aliases vs. Defined Types](#type-aliases-vs-defined-types)<br>
+[Operators](#operators)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Availability](#availability)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Binding](#binding)<br>
+[Limitations](#limitations)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
 
 ------------------------
 ![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
@@ -423,7 +452,7 @@ pi = 2.71 // Error
 
 ### Basic Types
 
-#### Boolean
+### Boolean
 
 [bool](https://www.w3schools.com/go/go_boolean_data_type.php) can carry only the true or false value. It's default value is always false.
 
@@ -657,72 +686,71 @@ v := i.(int) // type assertion back to int
 
 Go has 25 reserved words that cannot be used as identifiers such as variable names.
 
-break
-case
-chan
-const
-continue
-default
-defer
-else
-fallthrough
-for
-func
-go
-goto
-if
-import
-interface
-map
-package
-range
-return
-select
-struct
-switch
-type
-var
+- break
+- case
+- chan
+- const
+- continue
+- default
+- defer
+- else
+- fallthrough
+- for
+- func
+- go
+- goto
+- if
+- import
+- interface
+- map
+- package
+- range
+- return
+- select
+- struct
+- switch
+- type
+- var
 
 ### Variable Naming Requirements & Conventions
 
 #### Required by Compiler
 
-A variable name must begin with a letter or an underscore _. The remaining characters can be letters, digits, or underscores.
-Names are case-sensitive so myNum and MyNum are different variables.
-If an identifier needs to be visible outside its package (exported), it must start with a capital letter.
-In Go, identifiers that start with a capital letter are exported (public), while those starting with lowercase are unexported (package-private).
-The underscore _ blank identifier has a special role and is used to ignore values, e.g. in assignments or imports.
-You always have to specify either type or value (or both).
+- A variable name must begin with a letter or an underscore _. The remaining characters can be letters, digits, or underscores.
+- Names are case-sensitive so myNum and MyNum are different variables.
+- If an identifier needs to be visible outside its package (exported), it must start with a capital letter.
+- In Go, identifiers that start with a capital letter are exported (public), while those starting with lowercase are unexported (package-private).
+- The underscore _ blank identifier has a special role and is used to ignore values, e.g. in assignments or imports.
+- You always have to specify either type or value (or both).
 
 #### Encouraged by Professional and Community Standards
 
-Acronyms should be in all caps: ServeHTTP, urlAPI, etc.
-CamelCase is preferred.
-Don't use underscores for common variable names despite them being legal.
-Full meaningful words for variables specific to your program i.e. serverAWS not s1
-
-Use := only when introducing a new variable.
-Use = if you only want to reassign an existing variable.
+- Acronyms should be in all caps: ServeHTTP, urlAPI, etc.
+- CamelCase is preferred.
+- Don't use underscores for common variable names despite them being legal.
+- Full meaningful words for variables specific to your program i.e. serverAWS not s1
+- Use := only when introducing a new variable.
+- Use = if you only want to reassign an existing variable.
 
 But use common short words for readability. The more professional Go code you'll read, you'll notice some patterns appear often:
-i, j, etc - used often in nested loops
-n - for counts or number
-p - pointer
-r - io.Reader
-w - io.Writer
-rw - io.ReadWriter
-err - error
-db - database
-cfg - config
+- i, j, etc - used often in nested loops
+- n - for counts or number
+- p - pointer
+- r - io.Reader
+- w - io.Writer
+- rw - io.ReadWriter
+- err - error
+- db - database
+- cfg - config
 
 ### Composite Literals
 
 Go supports composite literals, which provide a concise way to construct values for arrays, slices, maps, and structs.
 
-arr := [3]int{1, 2, 3}  
-s := []string{"a", "b", "c"}  
-m := map[string]int{"one": 1, "two": 2}  
-p := Person{Name: "Alice", Age: 30}  
+- arr := [3]int{1, 2, 3}  
+- s := []string{"a", "b", "c"}  
+- m := map[string]int{"one": 1, "two": 2}  
+- p := Person{Name: "Alice", Age: 30}  
 
 ### Type Aliases vs. Defined Types
 
@@ -744,21 +772,22 @@ var b int = 40
 
 Go has a standard set of C-like operators.
 
-Arithmetic: +, -, *, /, % (for integers), ++, --
+- Arithmetic: +, -, *, /, % (for integers), ++, --
 
-Comparison: ==, !=, <, <=, >, >=
+- Comparison: ==, !=, <, <=, >, >=
 
-Logical: &&, ||, !
+- Logical: &&, ||, !
 
-Bitwise: & (and), | (or), ^ (xor), &^ (and not), << (left shift), >> (right shift)
+- Bitwise: & (and), | (or), ^ (xor), &^ (and not), << (left shift), >> (right shift)
 
-Assignment: =, +=, -=, *=, /=, %=, etc.
+- Assignment: =, +=, -=, *=, /=, %=, etc.
 
-Address / Pointer: & (address of), * (dereference)
+- Address / Pointer: & (address of), * (dereference)
 
-Channel: (used for sending/receiving from channels)
+- Channel: (used for sending/receiving from channels)
 
-Increment/Decrement operators (++ / --)
+- Increment/Decrement operators (++ / --)
+
 Go only allows them as statements, not expressions.
 Example: i++ is valid, but x = i++ is invalid.
 
@@ -795,23 +824,23 @@ The one notable exception is that untyped constants (like const n = 5) have more
 
 ### Availability
 
-Numbers (int, float, complex): + - * / % (mod only for ints), comparisons (== != < <= > >=), bitwise ops (& | ^ &^ << >>, only for ints).
+- Numbers (int, float, complex): + - * / % (mod only for ints), comparisons (== != < <= > >=), bitwise ops (& | ^ &^ << >>, only for ints).
 
-Strings: + (concatenation), comparisons (== != < <= > >= lex order).
+- Strings: + (concatenation), comparisons (== != < <= > >= lex order).
 
-Booleans: && || !, comparisons (== !=).
+- Booleans: && || !, comparisons (== !=).
 
-Pointers: * (dereference), & (address of), == != (compare addresses).
+- Pointers: * (dereference), & (address of), == != (compare addresses).
 
-Interfaces: == != (two interfaces equal if both dynamic type and value are equal, or both nil).
+- Interfaces: == != (two interfaces equal if both dynamic type and value are equal, or both nil).
 
-Structs: == != only if all fields are comparable types.
+- Structs: == != only if all fields are comparable types.
 
-Arrays: == != if element type is comparable.
+- Arrays: == != if element type is comparable.
 
-Slices, Maps, Functions, Channels: only == != against nil.
+- Slices, Maps, Functions, Channels: only == != against nil.
 
-Channels: additionally, <- for send/receive.
+- Channels: additionally, <- for send/receive.
 
 ### Binding
 
@@ -823,39 +852,29 @@ For interfaces, method calls are resolved at runtime, since interface values are
 
 # Limitations
 
-:= cannot be used at package level; must declare at least one new variable.
-
-const only for primitive values; cannot be slice/map/channel.
-Go’s enumerations rely on iota. That’s part of how constants are typically used in practice.
-untyped constants. These are more flexible than variables until assigned a type.
+- := cannot be used at package level; must declare at least one new variable.
+- const only for primitive values; cannot be slice/map/channel.
+- Go’s enumerations rely on iota. That’s part of how constants are typically used in practice.
+- untyped constants. These are more flexible than variables until assigned a type.
 
 Example:
 const n = 5
 var x int32 = n   // allowed
 var y float64 = n // also allowed
 
-Arrays/structs: == only if elements/fields are comparable.
+- Arrays/structs: == only if elements/fields are comparable.
+- Slices/maps/functions: cannot be compared except to nil.
+- Must use explicit conversion for mixed numeric types (e.g., int + float64).
+- Arrays and slices are homogeneous — cannot store different types unless using interface{}.
+- Type conversion syntax (T(v)) is explicit and limited — some require helper functions (strconv.Atoi for string → int).
+- No operator overloading, no implicit type coercion.
+- Function equality → only comparable against nil (not against other functions).
 
-Slices/maps/functions: cannot be compared except to nil.
+#### Pitfalls
 
-Must use explicit conversion for mixed numeric types (e.g., int + float64).
-
-Arrays and slices are homogeneous — cannot store different types unless using interface{}.
-
-Type conversion syntax (T(v)) is explicit and limited — some require helper functions (strconv.Atoi for string → int).
-
-No operator overloading, no implicit type coercion.
-
-Function equality → only comparable against nil (not against other functions).
-
-#### Pitfalls (common sources of bugs):
-
-Zero values: variables are auto-initialized (0, "", nil, false) — can cause logic errors if assumptions differ.
-
-Slices and maps are reference types: assigning them copies the reference, not the underlying data.
-
-Nil interfaces: (type, value) pairs — an interface holding a typed nil is not equal to nil.
-nil is the zero value for reference types (slice, map, channel, pointer, interface, function).
-But their behavior differs: nil slices can still be appended to, while nil maps panic on write.
-
-Shadowing with := can silently redefine outer variables.
+- Zero values: variables are auto-initialized (0, "", nil, false) — can cause logic errors if assumptions differ.
+- Slices and maps are reference types: assigning them copies the reference, not the underlying data.
+- Nil interfaces: (type, value) pairs — an interface holding a typed nil is not equal to nil.
+- nil is the zero value for reference types (slice, map, channel, pointer, interface, function).
+- But their behavior differs: nil slices can still be appended to, while nil maps panic on write.
+- Shadowing with := can silently redefine outer variables.
