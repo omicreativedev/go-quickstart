@@ -423,7 +423,7 @@ pi = 2.71 // Error
 
 ### Basic Types
 
-### Boolean
+#### Boolean
 
 [bool](https://www.w3schools.com/go/go_boolean_data_type.php) can carry only the true or false value. It's default value is always false.
 
