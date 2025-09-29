@@ -379,3 +379,484 @@ Go has an advanced feature call go directives that attach to comments in Go. The
 
 ------------------------
 ![Part 2](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_2.png?raw=true "Part 2")
+
+# Type System and Variable Semantics
+
+**Go is statically typed**  (as opposed to dynamically typed), similar to Java, C++, and Rust. This means the type of a variable is known and checked at compile time, unlike in Python, JavaScript, and Ruby, where types are determined and checked at runtime.
+
+```go
+// Go
+count := 10
+count = "hello" // Error
+```
+```python
+# Python
+count = 10
+count = "hello"  # Valid in Python
+```
+
+However, Go supports type inference with the ```:=``` operator. **Go allows both explicit type declarations and implicit type inference.** The compiler infers its type from the value you assign at compile time (not runtime) when you use the ```:=``` operator, but once inferred, the variable type is fixed. 
+
+```
+# Explicit
+var count int = 10
+```
+```
+# Implicit
+count := 10 // The compiler infers this as an int
+```
+Because **Go is strongly typed**, the language prevents operations between incompatible types and does not perform implicit type conversions. For example, you cannot add a string and an integer. This is stricter than JavaScript (weakly typed) but similar to Python (which is also strongly typed). Learn more about type conversions below.
+
+Variables declared with ```var``` or the short declaration operator ```:=``` are **mutable***. Their value can be changed.
+```
+x := 5
+x = 10
+```
+However, constants declared with the reserved ```const``` keyword are **immutable**. Their value must be known at compile time and can't be changed.
+```
+const pi = 3.14
+pi = 2.71 // Error
+```
+> [!NOTE]
+> Reference types like slices/maps/channels are always mutable.
+
+# Data Types
+
+### Basic Types
+
+### Boolean
+
+[bool](https://www.w3schools.com/go/go_boolean_data_type.php) can carry only the true or false value. It's default value is always false.
+
+```
+func main() {
+	var isSunny bool = true
+	var isRaining bool
+
+	if isSunny && !isRaining { // If it's sunny AND NOT raining
+		fmt.Println("Let's go outside.")
+	} else { // otherwise...
+		fmt.Println("Let's stay indoors.")
+	}
+}
+```
+See demo of bool.
+Read more about bool on go.dev
+
+#### Numeric
+
+Signed and unsigned integers in Go have generic types and byte specific types. For instance, ```int``` is 64 bits on a 64 bit system. However, if you want to limit it to just 8, you could use ```int8```. The same goes for unsigned integers.
+
+Signed Integers can store both positive and negative values.
+
+- int is generic and platform dependent. They are 32 bits in 32 bit systems and 64 bit in 64 bit systems.
+- int8
+- int16
+- int32 is also a rune (see below)
+- int64
+
+Unsigned Integers cannot hold negative values.
+
+- uint is also generic and platform dependent. They are 32 bits in 32 bit systems and 64 bit in 64 bit systems.
+- uint8 is also a byte (see below)
+- uint16
+- uint32
+- uint64
+- uintptr is an unsigned integer type large enough to hold the bit pattern of any pointer. It is used in low-level programming with the unsafe package. It should be used with extreme caution. More on that here.
+
+int and uint are implementation-dependent. This sometimes causes portability issues across 32 bit and 64 bit systems. Therefore its convention to specify which explicity in most cases or infer its type by value.
+
+>[!WARNING]
+>uintptr is NOT garbage collected.
+
+Read [more about integers from w3schools.com](https://www.w3schools.com/go/go_integer_data_type.php)
+
+Floating-Point numbers are like floats in python, which are used for both 32 bit and 64 bit decimals numbers.
+
+- float (without byte specification) defaults to float64 but in Go it's convention to specify the float type explicity or infer it by value.
+- float32 is similar to floats in C++ and Java
+- float64 is similar to doubles in C++ and Java
+
+Complex Numbers are the set of all complex numbers with float real and imaginary parts
+
+complex64 are float 32 real and imaginary parts
+complex128 are float 64 real and imaginary parts
+
+Learn more about numeric types on [go.dev/ref/spec#Numeric_types](https://go.dev/ref/spec#Numeric_types).
+
+#### Strings
+
+In Go, a **string** is an immutable sequence of bytes that is interpreted as UTF-8 text.
+
+There are a variety of ways to initialize a string in Go. The most common ways are:
+
+```Go
+var s1 string = "Hello, Go!"
+s2 := "Hello, World!"
+```
+
+Raw strings can span multiple lines. If you want to preserve all charachters in a raw string without escapes use single back ticks
+
+```Go
+raw := `Hello,
+World.
+\nThis is ignored.`
+fmt.Println(raw)
+```
+Once a string is created, it cannot be changed. Indexing a string returns a byte, not a full Unicode (rune). Slicing a string preserves the UTF-8 encoding so you can extract parts of it.
+
+```Go
+package main
+import "fmt"
+func main() {
+	text := "Hello"
+	fmt.Println("First byte:", text[0])  // 72
+	fmt.Println("Slice [0:1]:", text[0:1]) // H (UTF-8)
+	fmt.Println("Rune:", []rune(text)) // [72 101 108 108 111] (Unicode)
+}
+```
+See strings demo 1 and demo 2.
+More about strings from go.dev
+
+#### Aliases
+
+To reduce confusion and help distinguish the intent of a value, Go has a few aliases that make handling data easier.
+
+**rune** is an alias for ```int32```, a rune holds a full 32-bit Unicode character making it easy for working with non-ASCII text.
+```Go
+var r rune = '⌘'
+```
+
+**byte** is an alias for ```uint8```, and is used for a variable meant to be a raw piece of 8-bit data like an ASCII character.
+```Go
+var b byte = 'a'
+```
+
+### Composite Types
+
+#### Aggregate
+
+An **array** is a fixed-length sequence of elements of a single type. These types are composed of elements or fields, which are themselves other types. Arrays cannot hold different types at the same time though, like python lists. For that functionality, see interfaces (below.)
+
+Arrays can hold 
+- Basic types: int, float64, bool, string, etc.
+- Composite types: struct, [n]Type (arrays), pointers, functions, etc.
+- Empty interface [n]interface{} can hold any type (mixed types)
+
+```
+var numbers [5]int // An array of 5 integers initialized to [0 0 0 0 0]
+var names [2]string{"Sally","Dave"} // An array of 2 strings initialized to [Sally, Dave]
+```
+See more examples in the demo.
+
+A **struct** is a collection of named fields, where each field can be of a different type.
+```Go
+type Person struct { 
+Name string; 
+Age int
+}
+```
+Most of the labor done by classes in OOP languages like Java are done with structs in Go. A key difference is that Go separates the struct (data) from the methods or functions (behavior). Instead they are bound with a receiver (see binding below.) There is no inheritance, so Go uses struct embedding. Structs can be embedded into one another to create complex data relationships.
+
+```Go
+type Person struct {
+    Name string
+    Age  int
+}
+type Employee struct {
+    Person // Embedded Person struct
+    EmployeeID string
+}
+```
+See more examples in the struct demo.
+Read more about structs here.
+
+#### Reference
+
+While "reference" is not an official form in the spec, these types hold a reference to an underlying data structure.
+
+Slice: A dynamic-sized, flexible view into an array.
+
+Example: []int, []string
+
+Map: An unordered collection of key-value pairs similar to a python dictionary.
+
+Example: map[string]int
+
+Channel: A conduit for sending and receiving values with the arrow <- operator used for communication between goroutines.
+
+Example: chan int, chan<- string (send-only), <-chan bool (receive-only)
+
+Pointer: Holds the memory address of a variable.
+
+Example: *int, *MyStruct
+
+Function: A function can also be a type, allowing functions to be passed as arguments and assigned to variables.
+
+Example: func(int, int) int, func()
+
+### Interface Types
+
+Interfaces: Go uses interfaces to achieve polymorphism. An interface is a collection of method signatures, and any type that implements all the methods of an interface can be treated as that interface's type. This is different from class-based inheritance where a subclass must explicitly inherit from a superclass.
+
+This is a fundamentally important category in Go. An interface is a set of method signatures.
+
+A variable of an interface type can hold any concrete value that implements all the methods in the interface.
+
+Empty Interface: interface{} (or its alias any). It has zero methods, so every type implements it. It's used for handling values of unknown type.
+
+Example Interface: The error interface is type error interface { Error() string }. Any type with an Error() string method implements error.
+
+Example Interface: The Stringer interface from the fmt package: type Stringer interface { String() string }.
+
+### Complex Types
+
+Three are extremely common and are built into the language with special syntax and support:
+
+Slice ([]T): A dynamically-sized, flexible view into an array. This is one of the most used data structures, replacing arrays for most use cases.
+
+Map (map[K]V): An unordered collection of key-value pairs. Used like dictionaries or hashes in other languages.
+
+Channel (chan T): A typed conduit for sending and receiving values with the <- operator. The primary construct for communication and synchronization between goroutines (lightweight threads).
+
+#### Type Conversion
+
+Go requires **explicit type conversions** between different types. Unlike some languages (e.g., JavaScript, Python, C), Go does not perform implicit coercion, even between numeric types. You must tell the compiler exactly how to convert one type to another using the syntax:
+
+```go
+T(v) // converts the value v to type T, if valid
+```
+
+Numeric types: All conversions between numeric types are explicit (int → float64, float64 → int, int32 → int64, etc.). Overflow and truncation can occur silently.
+
+String ↔ byte slice:
+
+[]byte("hello") creates a slice of bytes from a string.
+
+string([]byte{104, 101, 108, 108, 111}) converts bytes back into a string.
+
+These always make a copy.
+
+Rune ↔ string: Converting a rune (int32) to string produces a one-character string containing the UTF-8 encoding of the rune.
+
+Untyped constants: More flexible. An untyped constant can be assigned to variables of different types without explicit conversion until it’s given a concrete type.
+
+const n = 5
+var a int32 = n
+var b float64 = n // both valid
+
+Invalid conversions: Some conversions are disallowed. For example, you cannot directly convert a string to an int; you must use helper functions (e.g., strconv.Atoi).
+
+Interfaces: A value of one type can be assigned to an interface if the type implements the interface methods — this is not a "conversion" but implicit interface assignment. To get the original type back, you need a type assertion:
+
+var i interface{} = 42
+v := i.(int) // type assertion back to int
+
+# Syntax
+
+### Reserved Words
+
+Go has 25 reserved words that cannot be used as identifiers such as variable names.
+
+break
+case
+chan
+const
+continue
+default
+defer
+else
+fallthrough
+for
+func
+go
+goto
+if
+import
+interface
+map
+package
+range
+return
+select
+struct
+switch
+type
+var
+
+### Variable Naming Requirements & Conventions
+
+#### Required by Compiler
+
+A variable name must begin with a letter or an underscore _. The remaining characters can be letters, digits, or underscores.
+Names are case-sensitive so myNum and MyNum are different variables.
+If an identifier needs to be visible outside its package (exported), it must start with a capital letter.
+In Go, identifiers that start with a capital letter are exported (public), while those starting with lowercase are unexported (package-private).
+The underscore _ blank identifier has a special role and is used to ignore values, e.g. in assignments or imports.
+You always have to specify either type or value (or both).
+
+#### Encouraged by Professional and Community Standards
+
+Acronyms should be in all caps: ServeHTTP, urlAPI, etc.
+CamelCase is preferred.
+Don't use underscores for common variable names despite them being legal.
+Full meaningful words for variables specific to your program i.e. serverAWS not s1
+
+Use := only when introducing a new variable.
+Use = if you only want to reassign an existing variable.
+
+But use common short words for readability. The more professional Go code you'll read, you'll notice some patterns appear often:
+i, j, etc - used often in nested loops
+n - for counts or number
+p - pointer
+r - io.Reader
+w - io.Writer
+rw - io.ReadWriter
+err - error
+db - database
+cfg - config
+
+### Composite Literals
+
+Go supports composite literals, which provide a concise way to construct values for arrays, slices, maps, and structs.
+
+arr := [3]int{1, 2, 3}  
+s := []string{"a", "b", "c"}  
+m := map[string]int{"one": 1, "two": 2}  
+p := Person{Name: "Alice", Age: 30}  
+
+### Type Aliases vs. Defined Types
+
+Go distinguishes between defined types and type aliases:
+
+// Defined type: creates a new, distinct type
+type MyInt int  
+var x MyInt = 10  
+var y int = 20  
+// x and y are NOT the same type
+
+// Type alias: another name for an existing type
+type MyIntAlias = int  
+var a MyIntAlias = 30  
+var b int = 40  
+// a and b are the same type
+
+### Operators
+
+Go has a standard set of C-like operators.
+
+Arithmetic: +, -, *, /, % (for integers), ++, --
+
+Comparison: ==, !=, <, <=, >, >=
+
+Logical: &&, ||, !
+
+Bitwise: & (and), | (or), ^ (xor), &^ (and not), << (left shift), >> (right shift)
+
+Assignment: =, +=, -=, *=, /=, %=, etc.
+
+Address / Pointer: & (address of), * (dereference)
+
+Channel: (used for sending/receiving from channels)
+
+Increment/Decrement operators (++ / --)
+Go only allows them as statements, not expressions.
+Example: i++ is valid, but x = i++ is invalid.
+
+In Go, := can redeclare a variable if there’s at least one new variable being declared in the same statement. This can lead to shadowing, where an inner variable hides an outer one.
+
+```Go
+package main
+
+import "fmt"
+
+func main() {
+    x := 10
+    fmt.Println("Outer x:", x)
+
+    if true {
+        x := 20 // 👈 Shadows the outer x
+        fmt.Println("Inner x:", x)
+    }
+
+    fmt.Println("Outer x again:", x) // Still 10, inner x is gone
+}
+```
+
+**Go does not allow mixed-type operations** without an explicit conversion. This is a core tenet of its strong typing.
+```Go
+var x int32 = 10
+var y int64 = 20
+
+// sum := x + y // Compile Error: mismatched types int32 and int64
+sum := int64(x) + y // This works: explicit conversion is required
+```
+
+The one notable exception is that untyped constants (like const n = 5) have more flexibility and can be mixed in expressions until they are assigned to a variable.
+
+### Availability
+
+Numbers (int, float, complex): + - * / % (mod only for ints), comparisons (== != < <= > >=), bitwise ops (& | ^ &^ << >>, only for ints).
+
+Strings: + (concatenation), comparisons (== != < <= > >= lex order).
+
+Booleans: && || !, comparisons (== !=).
+
+Pointers: * (dereference), & (address of), == != (compare addresses).
+
+Interfaces: == != (two interfaces equal if both dynamic type and value are equal, or both nil).
+
+Structs: == != only if all fields are comparable types.
+
+Arrays: == != if element type is comparable.
+
+Slices, Maps, Functions, Channels: only == != against nil.
+
+Channels: additionally, <- for send/receive.
+
+### Binding
+
+Identifier Names: Binding happens primarily at compile time. The compiler resolves all variable, function, and type names. Method dispatch is also static (compile-time) unless an interface is involved, which uses dynamic dispatch (runtime).
+
+Operator Symbols: Binding is always at compile time. The meaning of an operator (e.g., + meaning integer addition or string concatenation) is determined solely by the types of its operands, which are known at compile time.
+
+For interfaces, method calls are resolved at runtime, since interface values are stored as a (type, value) pair.
+
+# Limitations
+
+:= cannot be used at package level; must declare at least one new variable.
+
+const only for primitive values; cannot be slice/map/channel.
+Go’s enumerations rely on iota. That’s part of how constants are typically used in practice.
+untyped constants. These are more flexible than variables until assigned a type.
+
+Example:
+const n = 5
+var x int32 = n   // allowed
+var y float64 = n // also allowed
+
+Arrays/structs: == only if elements/fields are comparable.
+
+Slices/maps/functions: cannot be compared except to nil.
+
+Must use explicit conversion for mixed numeric types (e.g., int + float64).
+
+Arrays and slices are homogeneous — cannot store different types unless using interface{}.
+
+Type conversion syntax (T(v)) is explicit and limited — some require helper functions (strconv.Atoi for string → int).
+
+No operator overloading, no implicit type coercion.
+
+Function equality → only comparable against nil (not against other functions).
+
+#### Pitfalls (common sources of bugs):
+
+Zero values: variables are auto-initialized (0, "", nil, false) — can cause logic errors if assumptions differ.
+
+Slices and maps are reference types: assigning them copies the reference, not the underlying data.
+
+Nil interfaces: (type, value) pairs — an interface holding a typed nil is not equal to nil.
+nil is the zero value for reference types (slice, map, channel, pointer, interface, function).
+But their behavior differs: nil slices can still be appended to, while nil maps panic on write.
+
+Shadowing with := can silently redefine outer variables.
