@@ -379,6 +379,7 @@ Go has an advanced feature call go directives that attach to comments in Go. The
 
 ------------------------
 ![Part 2](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_2.png?raw=true "Part 2")
+
 # Type System and Variable Semantics
 
 **Go is statically typed**  (as opposed to dynamically typed), similar to Java, C++, and Rust. This means the type of a variable is known and checked at compile time, unlike in Python, JavaScript, and Ruby, where types are determined and checked at runtime.
