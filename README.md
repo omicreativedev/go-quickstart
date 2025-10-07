@@ -453,7 +453,7 @@ pi = 2.71 // Error
 
 ### Basic Types
 
-### Boolean
+#### Boolean
 
 [bool](https://www.w3schools.com/go/go_boolean_data_type.php) can carry only the true or false value. It's default value is always false.
 
@@ -469,8 +469,7 @@ func main() {
 	}
 }
 ```
-See demo of bool.
-Read more about bool on go.dev
+
 
 #### Numeric
 
@@ -493,23 +492,23 @@ Unsigned Integers cannot hold negative values.
 - uint64
 - uintptr is an unsigned integer type large enough to hold the bit pattern of any pointer. It is used in low-level programming with the unsafe package. It should be used with extreme caution. More on that here.
 
-int and uint are implementation-dependent. This sometimes causes portability issues across 32 bit and 64 bit systems. Therefore its convention to specify which explicity in most cases or infer its type by value.
+```int``` and ```uint``` are implementation-dependent. This sometimes causes portability issues across 32 bit and 64 bit systems. Therefore its convention to specify which explicity in most cases or infer its type by value.
 
 >[!WARNING]
 >uintptr is NOT garbage collected.
 
 Read [more about integers from w3schools.com](https://www.w3schools.com/go/go_integer_data_type.php)
 
-Floating-Point numbers are like floats in python, which are used for both 32 bit and 64 bit decimals numbers.
+**Floating-Point Numbers** are like floats in python, which are used for both 32 bit and 64 bit decimals numbers.
 
 - float (without byte specification) defaults to float64 but in Go it's convention to specify the float type explicity or infer it by value.
 - float32 is similar to floats in C++ and Java
 - float64 is similar to doubles in C++ and Java
 
-Complex Numbers are the set of all complex numbers with float real and imaginary parts
+**Complex Numbers** are the set of all complex numbers with float real and imaginary parts
 
-complex64 are float 32 real and imaginary parts
-complex128 are float 64 real and imaginary parts
+- complex64 are float 32 real and imaginary parts
+- complex128 are float 64 real and imaginary parts
 
 Learn more about numeric types on [go.dev/ref/spec#Numeric_types](https://go.dev/ref/spec#Numeric_types).
 
@@ -532,7 +531,9 @@ World.
 \nThis is ignored.`
 fmt.Println(raw)
 ```
-Once a string is created, it cannot be changed. Indexing a string returns a byte, not a full Unicode (rune). Slicing a string preserves the UTF-8 encoding so you can extract parts of it.
+Once a string is created, it cannot be changed.
+Indexing a string returns a byte, not a full Unicode (rune).
+Slicing a string preserves the UTF-8 encoding so you can extract parts of it.
 
 ```Go
 package main
@@ -544,19 +545,18 @@ func main() {
 	fmt.Println("Rune:", []rune(text)) // [72 101 108 108 111] (Unicode)
 }
 ```
-See strings demo 1 and demo 2.
-More about strings from go.dev
+
 
 #### Aliases
 
 To reduce confusion and help distinguish the intent of a value, Go has a few aliases that make handling data easier.
 
-**rune** is an alias for ```int32```, a rune holds a full 32-bit Unicode character making it easy for working with non-ASCII text.
+A **rune** is an alias for ```int32```, a rune holds a full 32-bit Unicode character making it easy for working with non-ASCII text.
 ```Go
 var r rune = '⌘'
 ```
 
-**byte** is an alias for ```uint8```, and is used for a variable meant to be a raw piece of 8-bit data like an ASCII character.
+A **byte** is an alias for ```uint8```, and is used for a variable meant to be a raw piece of 8-bit data like an ASCII character.
 ```Go
 var b byte = 'a'
 ```
@@ -576,7 +576,7 @@ Arrays can hold
 var numbers [5]int // An array of 5 integers initialized to [0 0 0 0 0]
 var names [2]string{"Sally","Dave"} // An array of 2 strings initialized to [Sally, Dave]
 ```
-See more examples in the demo.
+
 
 A **struct** is a collection of named fields, where each field can be of a different type.
 ```Go
@@ -585,7 +585,7 @@ Name string;
 Age int
 }
 ```
-Most of the labor done by classes in OOP languages like Java are done with structs in Go. A key difference is that Go separates the struct (data) from the methods or functions (behavior). Instead they are bound with a receiver (see binding below.) There is no inheritance, so Go uses struct embedding. Structs can be embedded into one another to create complex data relationships.
+Most of the labor done by classes in OOP languages like Java are done with structs in Go. A key difference is that Go separates the struct (data) from the methods or functions (behavior). Instead they are bound with a receiver (see binding below.) **There is no inheritance**, so Go uses struct embedding. Structs can be embedded into one another to create complex data relationships.
 
 ```Go
 type Person struct {
@@ -597,46 +597,72 @@ type Employee struct {
     EmployeeID string
 }
 ```
-See more examples in the struct demo.
-Read more about structs here.
+
 
 #### Reference
 
-While "reference" is not an official form in the spec, these types hold a reference to an underlying data structure.
 
-Slice: A dynamic-sized, flexible view into an array.
-
-Example: []int, []string
-
-Map: An unordered collection of key-value pairs similar to a python dictionary.
-
-Example: map[string]int
-
-Channel: A conduit for sending and receiving values with the arrow <- operator used for communication between goroutines.
-
-Example: chan int, chan<- string (send-only), <-chan bool (receive-only)
-
-Pointer: Holds the memory address of a variable.
-
-Example: *int, *MyStruct
-
-Function: A function can also be a type, allowing functions to be passed as arguments and assigned to variables.
-
-Example: func(int, int) int, func()
-
+A **slice** dynamic-sized, flexible view into an array.
+```Go
+[]int
+[]string
+```
+A **map** is an unordered collection of key-value pairs similar to a python dictionary.
+```Go
+map[string]int
+```
+A channel is conduit for sending and receiving values with the arrow <- operator used for communication between goroutines.
+```Go
+chan int, chan<- string (send-only), <-chan bool (receive-only)
+```
+A **pointer** holds the memory address of a variable.
+```Go
+*int
+*MyStruct
+```
+In Go, a **function** can also be a type, allowing functions to be passed as arguments and assigned to variables.
+```Go
+func(int, int) int
+```
 ### Interface Types
 
-Interfaces: Go uses interfaces to achieve polymorphism. An interface is a collection of method signatures, and any type that implements all the methods of an interface can be treated as that interface's type. This is different from class-based inheritance where a subclass must explicitly inherit from a superclass.
-
-This is a fundamentally important category in Go. An interface is a set of method signatures.
+#### Interfaces
+Go uses interfaces to achieve **polymorphism**. An interface is a collection of method signatures, and any type that implements all the methods of an interface can be treated as that interface's type. This is different from class-based inheritance where a subclass must explicitly inherit from a superclass.
 
 A variable of an interface type can hold any concrete value that implements all the methods in the interface.
 
-Empty Interface: interface{} (or its alias any). It has zero methods, so every type implements it. It's used for handling values of unknown type.
-
-Example Interface: The error interface is type error interface { Error() string }. Any type with an Error() string method implements error.
-
-Example Interface: The Stringer interface from the fmt package: type Stringer interface { String() string }.
+Example: **Empty Interface**
+```Go
+var anyValue interface{}
+anyValue = 42          // Can hold int
+anyValue = "hello"     // Can hold string
+anyValue = []float64{1.2, 3.4} // Can hold slice
+```
+Example: **Error Interface**
+```
+type error interface {
+    Error() string
+}
+type MyError struct {
+    Message string
+}
+func (e MyError) Error() string {
+    return "Error: " + e.Message
+}
+```
+Example: **Stringer Interface**
+```Go
+type Stringer interface {
+    String() string
+}
+type Person struct {
+    Name string
+    Age  int
+}
+func (p Person) String() string {
+    return fmt.Sprintf("%s (%d years)", p.Name, p.Age)
+}
+```
 
 ### Complex Types
 
