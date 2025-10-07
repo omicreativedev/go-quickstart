@@ -57,6 +57,8 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 [Operators](#operators)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Availability](#availability)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Binding](#binding)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Storage, Addresses and Lifetime](#storage-addresses-and-lifetime)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Scope](#scope)<br>
 <br>
 [Limitations](#limitations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
