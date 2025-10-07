@@ -56,9 +56,9 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 [Type Aliases vs. Defined Types](#type-aliases-vs-defined-types)<br>
 [Operators](#operators)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Availability](#availability)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Binding](#binding)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Storage, Addresses and Lifetime](#storage-addresses-and-lifetime)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Scope](#scope)<br>
+[Binding](#binding)<br>
+[Storage, Addresses and Lifetime](#storage-addresses-and-lifetime)<br>
+[Scope](#scope)<br>
 <br>
 [Limitations](#limitations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
