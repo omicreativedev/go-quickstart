@@ -808,7 +808,7 @@ var b int = 40
 
 Go has a standard set of C-like operators.
 
-- **Arithmetic:** +, -, *, /, % (for integers), ++, -- (increment/decriment by 1)
+- **Arithmetic:** +, -, *, /, % 
 
 - **Comparison:** ==, !=, <, <=, >, >=
 
