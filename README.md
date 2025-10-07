@@ -808,7 +808,8 @@ i++ \\ is valid
 x = i++ \\ is invalid
 ```
 
-In Go, := can redeclare a variable if there’s at least one new variable being declared in the same statement. This can lead to shadowing, where an inner variable hides an outer one.
+In Go, ```:=``` can redeclare a variable if there’s at least one new variable being declared in the same statement.
+This can lead to shadowing, where an inner variable hides an outer one.
 
 ```Go
 package main
@@ -833,31 +834,30 @@ func main() {
 var x int32 = 10
 var y int64 = 20
 
-// sum := x + y // Compile Error: mismatched types int32 and int64
-sum := int64(x) + y // This works: explicit conversion is required
+// sum := x + y // Compile Error
+sum := int64(x) + y // This works
 ```
-
-The one notable exception is that untyped constants (like const n = 5) have more flexibility and can be mixed in expressions until they are assigned to a variable.
+The one exception is that untyped constants (like const n = 5) can be mixed in expressions until they are assigned to a variable.
 
 ### Availability
 
-- Numbers (int, float, complex): + - * / % (mod only for ints), comparisons (== != < <= > >=), bitwise ops (& | ^ &^ << >>, only for ints).
+- **Numbers (int, float, complex):** + - * / % (mod only for ints), comparisons (== != < <= > >=), bitwise ops (& | ^ &^ << >>, only for ints).
 
-- Strings: + (concatenation), comparisons (== != < <= > >= lex order).
+- **Strings:** + (concatenation), comparisons (== != < <= > >= lex order).
 
-- Booleans: && || !, comparisons (== !=).
+- **Booleans:** && || !, comparisons (== !=).
 
-- Pointers: * (dereference), & (address of), == != (compare addresses).
+- **Pointers:** * (dereference), & (address of), == != (compare addresses).
 
-- Interfaces: == != (two interfaces equal if both dynamic type and value are equal, or both nil).
+- **Interfaces:** == != (two interfaces equal if both dynamic type and value are equal, or both nil).
 
-- Structs: == != only if all fields are comparable types.
+- **Structs:** == != only if all fields are comparable types.
 
-- Arrays: == != if element type is comparable.
+- **Arrays:** == != if element type is comparable.
 
-- Slices, Maps, Functions, Channels: only == != against nil.
+- **Slices, Maps, Functions, Channels:** only == != against nil.
 
-- Channels: additionally, <- for send/receive.
+- **Channels:** additionally, <- for send/receive.
 
 ### Binding
 
