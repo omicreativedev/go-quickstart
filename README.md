@@ -743,7 +743,7 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 - Use := only when introducing a new variable.
 - Use = if you only want to reassign an existing variable.
 
-- Use common short words for readability. The more professional Go code you'll read, you'll notice some patterns appear often:<br/>
+- Use common short words for readability. The more professional Go code you'll read, you'll notice some patterns appear often:<br/><br/>
 &nbsp;&nbsp;i, j, etc - used often in nested loops<br/>
 &nbsp;&nbsp;n - for counts or number<br/>
 &nbsp;&nbsp;p - pointer<br/>
