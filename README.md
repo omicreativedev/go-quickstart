@@ -725,7 +725,7 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 
 ### Variable Naming Requirements & Conventions
 
-##### Required by Compiler
+#### Required by Compiler
 
 - A variable name must begin with a letter or an underscore _. The remaining characters can be letters, digits, or underscores.
 - Names are case-sensitive so myNum and MyNum are different variables.
@@ -734,7 +734,7 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 - The underscore _ blank identifier has a special role and is used to ignore values, e.g. in assignments or imports.
 - You always have to specify either type or value (or both).
 
-##### Encouraged by Professional and Community Standards
+#### Encouraged by Professional and Community Standards
 
 - Acronyms should be in all caps: ServeHTTP, urlAPI, etc.
 - CamelCase is preferred.
@@ -758,49 +758,55 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 
 Go supports composite literals, which provide a concise way to construct values for arrays, slices, maps, and structs.
 
-- arr := [3]int{1, 2, 3}  
-- s := []string{"a", "b", "c"}  
-- m := map[string]int{"one": 1, "two": 2}  
-- p := Person{Name: "Alice", Age: 30}  
+- ```arr := [3]int{1, 2, 3}  ```
+- ```s := []string{"a", "b", "c"}  ```
+- ```m := map[string]int{"one": 1, "two": 2}  ```
+- ```p := Person{Name: "Alice", Age: 30}  ```
 
 ### Type Aliases vs. Defined Types
 
 Go distinguishes between defined types and type aliases:
 
-// Defined type: creates a new, distinct type
+Defined type: creates a new, distinct type
+```
 type MyInt int  
 var x MyInt = 10  
 var y int = 20  
-// x and y are NOT the same type
+```
 
-// Type alias: another name for an existing type
+Type alias: another name for an existing type
+```
 type MyIntAlias = int  
 var a MyIntAlias = 30  
 var b int = 40  
-// a and b are the same type
+```
 
 ### Operators
 
 Go has a standard set of C-like operators.
 
-- Arithmetic: +, -, *, /, % (for integers), ++, --
+- **Arithmetic:** +, -, *, /, % (for integers), ++, -- (increment/decriment by 1)
 
-- Comparison: ==, !=, <, <=, >, >=
+- **Comparison:** ==, !=, <, <=, >, >=
 
-- Logical: &&, ||, !
+- **Logical:** &&, ||, !
 
-- Bitwise: & (and), | (or), ^ (xor), &^ (and not), << (left shift), >> (right shift)
+- **Bitwise:** & (and), | (or), ^ (xor), &^ (and not), << (left shift), >> (right shift)
 
-- Assignment: =, +=, -=, *=, /=, %=, etc.
+- **Assignment:** =, +=, -=, *=, /=, %=, etc.
 
-- Address / Pointer: & (address of), * (dereference)
+- **Address / Pointer:** & (address of), * (dereference)
 
-- Channel: (used for sending/receiving from channels)
+- **Channel**: (used for sending/receiving from channels)
 
-- Increment/Decrement operators (++ / --)
+- **Increment/Decrement operators:** ++,  --
 
-Go only allows them as statements, not expressions.
-Example: i++ is valid, but x = i++ is invalid.
+Go only allows increment/decrement as statements, not expressions"
+
+```
+i++ \\ is valid
+x = i++ \\ is invalid
+```
 
 In Go, := can redeclare a variable if there’s at least one new variable being declared in the same statement. This can lead to shadowing, where an inner variable hides an outer one.
 
