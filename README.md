@@ -599,34 +599,19 @@ type Employee struct {
 ```
 
 
-#### Reference
+### Reference Type
 
-
-A **slice** dynamic-sized, flexible view into an array.
-```Go
-[]int
-[]string
-```
-A **map** is an unordered collection of key-value pairs similar to a python dictionary.
-```Go
-map[string]int
-```
-A channel is conduit for sending and receiving values with the arrow <- operator used for communication between goroutines.
-```Go
-chan int, chan<- string (send-only), <-chan bool (receive-only)
-```
 A **pointer** holds the memory address of a variable.
 ```Go
 *int
 *MyStruct
 ```
+### Function Type
 In Go, a **function** can also be a type, allowing functions to be passed as arguments and assigned to variables.
 ```Go
 func(int, int) int
 ```
 ### Interface Types
-
-#### Interfaces
 Go uses interfaces to achieve **polymorphism**. An interface is a collection of method signatures, and any type that implements all the methods of an interface can be treated as that interface's type. This is different from class-based inheritance where a subclass must explicitly inherit from a superclass.
 
 A variable of an interface type can hold any concrete value that implements all the methods in the interface.
@@ -666,13 +651,19 @@ func (p Person) String() string {
 
 ### Complex Types
 
-Three are extremely common and are built into the language with special syntax and support:
-
-Slice ([]T): A dynamically-sized, flexible view into an array. This is one of the most used data structures, replacing arrays for most use cases.
-
-Map (map[K]V): An unordered collection of key-value pairs. Used like dictionaries or hashes in other languages.
-
-Channel (chan T): A typed conduit for sending and receiving values with the <- operator. The primary construct for communication and synchronization between goroutines (lightweight threads).
+**Slice ([]T)** dynamic-sized, flexible view into an array. This is one of the most used data structures, replacing arrays for most use cases.
+```Go
+[]int
+[]string
+```
+**Map (map[K]V)** is an unordered collection of key-value pairs similar to a python dictionary.
+```Go
+map[string]int
+```
+**Channel (chan T)** is conduit for sending and receiving values with the arrow <- operator used for communication between goroutines (lightweight threads).
+```Go
+chan int, chan<- string (send-only), <-chan bool (receive-only)
+```
 
 #### Type Conversion
 
