@@ -665,39 +665,32 @@ map[string]int
 chan int, chan<- string (send-only), <-chan bool (receive-only)
 ```
 
-#### Type Conversion
+### Type Conversion
 
 Go requires **explicit type conversions** between different types. Unlike some languages (e.g., JavaScript, Python, C), Go does not perform implicit coercion, even between numeric types. You must tell the compiler exactly how to convert one type to another using the syntax:
 
-```go
-T(v) // converts the value v to type T, if valid
+- **Numeric types:** All conversions between numeric types are explicit (int to float64, float64 to int, int32 to int64, etc.) Overflow and truncation can occur silently.
+
+- String ↔ byte slice:
+&nbsp;&nbsp; ```[]byte("hello")``` creates a slice of bytes from a string.
+&nbsp;&nbsp; ```string([]byte{104, 101, 108, 108, 111})``` converts bytes back into a string.
+
+- Rune ↔ string: Converting a rune (int32) to string produces a one-character string containing the UTF-8 encoding of the rune.
+
+- Untyped constants: An untyped constant can be assigned to variables of different types without explicit conversion until it’s given a concrete type:
 ```
-
-Numeric types: All conversions between numeric types are explicit (int → float64, float64 → int, int32 → int64, etc.). Overflow and truncation can occur silently.
-
-String ↔ byte slice:
-
-[]byte("hello") creates a slice of bytes from a string.
-
-string([]byte{104, 101, 108, 108, 111}) converts bytes back into a string.
-
-These always make a copy.
-
-Rune ↔ string: Converting a rune (int32) to string produces a one-character string containing the UTF-8 encoding of the rune.
-
-Untyped constants: More flexible. An untyped constant can be assigned to variables of different types without explicit conversion until it’s given a concrete type.
-
 const n = 5
 var a int32 = n
-var b float64 = n // both valid
+var b float64 = n
+```
+#### Invalid conversions
+- You cannot directly convert a string to an int; you must use helper functions like strconv.Atoi
 
-Invalid conversions: Some conversions are disallowed. For example, you cannot directly convert a string to an int; you must use helper functions (e.g., strconv.Atoi).
-
-Interfaces: A value of one type can be assigned to an interface if the type implements the interface methods — this is not a "conversion" but implicit interface assignment. To get the original type back, you need a type assertion:
-
+- Interfaces: A value of one type can be assigned to an interface if the type implements the interface methods — this is not a "conversion" but implicit interface assignment. To get the original type back, you need a type assertion:
+```
 var i interface{} = 42
-v := i.(int) // type assertion back to int
-
+v := i.(int) 
+```
 # Syntax
 
 ### Reserved Words
@@ -732,7 +725,7 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 
 ### Variable Naming Requirements & Conventions
 
-#### Required by Compiler
+##### Required by Compiler
 
 - A variable name must begin with a letter or an underscore _. The remaining characters can be letters, digits, or underscores.
 - Names are case-sensitive so myNum and MyNum are different variables.
@@ -741,7 +734,7 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 - The underscore _ blank identifier has a special role and is used to ignore values, e.g. in assignments or imports.
 - You always have to specify either type or value (or both).
 
-#### Encouraged by Professional and Community Standards
+##### Encouraged by Professional and Community Standards
 
 - Acronyms should be in all caps: ServeHTTP, urlAPI, etc.
 - CamelCase is preferred.
@@ -750,16 +743,16 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 - Use := only when introducing a new variable.
 - Use = if you only want to reassign an existing variable.
 
-But use common short words for readability. The more professional Go code you'll read, you'll notice some patterns appear often:
-- i, j, etc - used often in nested loops
-- n - for counts or number
-- p - pointer
-- r - io.Reader
-- w - io.Writer
-- rw - io.ReadWriter
-- err - error
-- db - database
-- cfg - config
+- Use common short words for readability. The more professional Go code you'll read, you'll notice some patterns appear often:<br/>
+&nbsp;&nbsp;i, j, etc - used often in nested loops<br/>
+&nbsp;&nbsp;n - for counts or number<br/>
+&nbsp;&nbsp;p - pointer<br/>
+&nbsp;&nbsp;r - io.Reader<br/>
+&nbsp;&nbsp;w - io.Writer<br/>
+&nbsp;&nbsp;rw - io.ReadWriter<br/>
+&nbsp;&nbsp;err - error<br/>
+&nbsp;&nbsp;db - database<br/>
+&nbsp;&nbsp;cfg - config<br/>
 
 ### Composite Literals
 
