@@ -599,13 +599,22 @@ type Employee struct {
 ```
 
 
-### Reference Type
+### Reference
 
 A **pointer** holds the memory address of a variable.
 ```Go
 *int
 *MyStruct
 ```
+
+Each variable or object occupies storage space in memory.
+You can retrieve the address of a variable using the & operator:
+```Go
+var a int = 10
+ptr := &a
+fmt.Println(ptr)
+```
+
 ### Function Type
 In Go, a **function** can also be a type, allowing functions to be passed as arguments and assigned to variables.
 ```Go
@@ -742,7 +751,19 @@ Go has 25 reserved words that cannot be used as identifiers such as variable nam
 - Full meaningful words for variables specific to your program i.e. serverAWS not s1
 - Use := only when introducing a new variable.
 - Use = if you only want to reassign an existing variable.
+- Single-method interfaces are often named with the method name plus -er: Reader, Writer, Stringer
+- Exported (Public) Identifiers: If an identifier starts with a capital letter, it is exported (visible from outside its package). This is Go's mechanism for public visibility.
+```
+fmt.Println // Println is exported because it starts with 'P'.
 
+http.ListenAndServe
+```
+- Unexported (Private) Identifiers: If an identifier starts with a lowercase letter, it is unexported and only accessible within the package it's declared in.
+```
+myHelperFunction
+
+internalCounter
+```
 - Use common short words for readability. The more professional Go code you'll read, you'll notice some patterns appear often:<br/><br/>
 &nbsp;&nbsp;i, j, etc - used often in nested loops<br/>
 &nbsp;&nbsp;n - for counts or number<br/>
@@ -804,8 +825,8 @@ Go has a standard set of C-like operators.
 Go only allows increment/decrement as statements, not expressions"
 
 ```
-i++ \\ is valid
-x = i++ \\ is invalid
+i++ // is valid
+x = i++ // is invalid
 ```
 
 In Go, ```:=``` can redeclare a variable if there’s at least one new variable being declared in the same statement.
@@ -861,11 +882,63 @@ The one exception is that untyped constants (like const n = 5) can be mixed in e
 
 ### Binding
 
-Identifier Names: Binding happens primarily at compile time. The compiler resolves all variable, function, and type names. Method dispatch is also static (compile-time) unless an interface is involved, which uses dynamic dispatch (runtime).
 
-Operator Symbols: Binding is always at compile time. The meaning of an operator (e.g., + meaning integer addition or string concatenation) is determined solely by the types of its operands, which are known at compile time.
+| Scenario                          | Example                                   | Binding Time                                                                                                                        |
+| --------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Variable Declaration**          | `var x int = 5`                           | **Compile time** (the name `x` is bound to a variable object)                                                                       |
+| **Short Variable Declaration**    | `x := 10`                                 | **Runtime (within compile constraints)**; the type and object are determined at compile time, but initialization happens at runtime |
+| **Function Declaration**          | `func add(a, b int) int { return a + b }` | **Compile time**; the identifier `add` is bound to the function’s entry point                                                       |
+| **Constant Declaration**          | `const Pi = 3.14`                         | **Compile time**; immutable binding                                                                                                 |
+| **Type Definition**               | `type MyInt int`                          | **Compile time**; binds a new name to an existing or new type                                                                       |
+| **Package Imports**               | `import "fmt"`                            | **Compile time**; binds the identifier `fmt` to the imported package namespace                                                      |
+| **Interface and Method Bindings** | Interface methods bound to concrete types | **Runtime (dynamic dispatch)** when the interface is assigned a concrete value                                                      |
+### Storage, Addresses, and Lifetime
 
-For interfaces, method calls are resolved at runtime, since interface values are stored as a (type, value) pair.
+- **Stack Allocation:** Local variables that don’t escape their function are stored on the stack.
+
+- **Heap Allocation:** Variables that “escape” (e.g., returned by a function or captured by a closure) are stored on the heap, managed by the garbage collector.
+
+- **Addressability:** Not all expressions have addresses (e.g., constants, temporary values, and function results are not addressable).
+
+Static Lifetime applies to package level variables and exist for the duration of the program:
+```
+var counter int
+```
+Local Lifetime variables exist only during the execution of their containing function:
+```
+func demo() {
+    x := 5 
+}
+```
+Heap Lifetime variables that returned references exist until garbage is collected:
+```
+func makeCounter() *int {
+    c := 0
+    return &c
+}
+```
+### Scope
+- **Universe Scope:** Built-in identifiers available everywhere ex.```int, true, len```
+
+- **Package Scope:** Identifiers declared at the top level of a package file
+
+- **File Scope:** Applies to imports and variables declared in a single file
+
+- **Function Scope:** Names declared inside a function are visible only there
+
+ - **Block Scope:** Identifiers within {} are visible only within that specific block
+```
+var global = "package scope"
+
+func demo() {
+    local := "function scope"
+    {
+        inner := "block scope"
+        fmt.Println(inner)
+    }
+    // fmt.Println(inner) // Error
+}
+```
 
 # Limitations
 
@@ -874,11 +947,11 @@ For interfaces, method calls are resolved at runtime, since interface values are
 - Go’s enumerations rely on iota. That’s part of how constants are typically used in practice.
 - untyped constants. These are more flexible than variables until assigned a type.
 
-Example:
+```
 const n = 5
 var x int32 = n   // allowed
 var y float64 = n // also allowed
-
+```
 - Arrays/structs: == only if elements/fields are comparable.
 - Slices/maps/functions: cannot be compared except to nil.
 - Must use explicit conversion for mixed numeric types (e.g., int + float64).
