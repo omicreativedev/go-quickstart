@@ -63,6 +63,17 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 [Limitations](#limitations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
 
+### Part 3
+[Control Statements: Loops, Selections, Conditionals](#control-statements-loops-selection-conditionals)<br/>
+[If/Else](#ifelse)<br/>
+[For Loops](#for-loops)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Continue and Break](#continue-and-break)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Labels](#labels)<br/>
+[Switch Statements](#switch-statements)<br/>
+[Block Delimiting](#block-delimiting)<br/>
+[Short Circuit Evaluation](#short-curcuit-evaluation)<br/>
+[Why is Go Missing Things?](#why-is-go-missing-things)<br/>
+
 ------------------------
 ![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
 
