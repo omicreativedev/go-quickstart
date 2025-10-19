@@ -970,3 +970,200 @@ var y float64 = n // also allowed
 - nil is the zero value for reference types (slice, map, channel, pointer, interface, function).
 - But their behavior differs: nil slices can still be appended to, while nil maps panic on write.
 - Shadowing with := can silently redefine outer variables.
+
+---
+![Part 3](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_3.png?raw=true "Part 3")
+
+# Control Statements: Loops, Selection, Conditionals
+
+As mentioned under the DataTypes section, [Boolean](https://github.com/omicreativedev/go-quickstart?tab=readme-ov-file#boolean) takes only true and false which is important to remember as we discuss conditionals.
+
+Go officially supports if/else and switch statements. Unlike C++/Java, Go has no official ```else if``` keyword.  Also, Go doesn't use parenthesis around control statements like C++ and writes them directly, similar to Python.
+
+### If/else
+
+```Go
+if x == true {
+    fmt.Println("x is true")
+} else {
+    fmt.Println("x is false")
+}
+
+if x > 0 && y < 10 {
+    fmt.Println("Both conditions met")
+}
+```
+Else if is **emulated** using else followed by if which, is a nuanced distinction.
+
+```Go
+if score >= 90 {
+    fmt.Println("A")
+} else if score >= 80 {
+    fmt.Println("B")
+} else {
+    fmt.Println("C")
+}
+```
+Source: (Go Documentation Spec. - If Statements)[https://go.dev/ref/spec#If_statements]
+
+### For Loops
+
+Go has only for loop that replaces while, do/while, and foreach from other languages.
+
+```Go
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+```
+
+To emulate a while loop, Go is smart and recognizes when a condition is not met.
+```Go
+x := 5
+for x > 0 {
+    fmt.Println(x)
+    x--
+}
+```
+Example emulation of a **for each**
+```Go
+numbers := []int{1, 2, 3}
+for index, value := range numbers {
+    fmt.Printf("%d: %d\n", index, value)
+}
+```
+Go also can print and infinite loop if not careful.
+```Go
+for {
+    fmt.Println("Forever")
+    break
+}
+```
+#### Continue and Break
+
+Inside a for loop, you can use break to stop it.
+
+```Go
+for x := 0; n <= 10; x++ {
+  if x == 4 {
+    break
+  }
+  fmt.Println(x)
+}
+```
+Continue only stops the execution of the current iteration. It continues with the next one.
+
+```Go
+for x := 0; x <= 10; x++ {
+  if x%2 == 0 {
+    continue
+  }
+  fmt.Println(x)
+}
+```
+```range``` here iterates through the numbers slice
+```Go
+for i, num := range numbers {
+        if num > 25 {
+            fmt.Printf("Index %d: %d is greater than 25\n", i, num)
+        }
+    }
+```
+#### Labels
+
+Labels can be used with break and continue to control exactly from which loop we want to break or continue
+
+```Go
+func main() {
+ControlBreak:
+    for i := 0; i < 5; i++ {
+        for j := 0; j < 5; j++ {
+            fmt.Println(i)
+            break ControlBreak
+        }
+    }
+}
+```
+Source: [Exercism -- For Loops](https://exercism.org/tracks/go/concepts/for-loops)
+### Switch Statements
+
+Go's switch automatically breaks after each case. It also accepts multiple values!
+
+```Go
+switch day {
+case "Monday":
+    fmt.Println("Start of week")
+case "Friday":
+    fmt.Println("Almost weekend")
+case "Saturday", "Sunday":
+    fmt.Println("Weekend!")
+default:
+    fmt.Println("Midweek")
+}
+```
+The word ```fallthrough`` is used to cause the switch to go to the next case.
+```Go
+switch number {
+    case 1:
+        fmt.Println("One")
+    case 2:
+        fmt.Println("Two")
+        fallthrough // <<< GO TO THE NEXT CASE
+    case 3:
+        fmt.Println("Three")
+    default:
+        fmt.Println("Other number")
+    }
+```
+Source:
+[Go.dev -- Switch Statements](https://go.dev/ref/spec#Switch_statements)
+[Go.dev -- Fallthrough Statements](https://go.dev/ref/spec#Fallthrough_statements)
+
+### Block Delimiting
+
+Go uses explicit braces {} for code blocks. This pevents the **danging else** issue. Opening braces must be on the same line, never the next line. It doesn't use semicolons. 
+
+```Go
+if x > 5 {
+    fmt.Println("Braces Always Required)
+}
+```
+Source: [](https://go.dev/doc/faq#semicolons)
+
+### Short Curcuit Evaluation
+
+Go uses short-circuit evaluation like Java/C++. Logical operators && and || evaluate left-to-right.
+
+```Go
+package main
+
+import "fmt"
+
+func main() {
+    if false && printEx() {
+        // This won't run
+    }
+    if true || printEx() {
+        fmt.Println("Done") 
+    }
+}
+
+func printEx() bool {
+    fmt.Println("This won't run either")
+    return true
+}
+```
+Source: [Go.dev -- Operators](https://go.dev/ref/spec#Operators)
+
+### Why Is Go Missing Things?
+
+GGo omits many features like ternary operator, parentheses around conditions, while loops, and inheritance) because its primary design goal is simplicity. As Rob Pike (Go co-designer) stated: "The key point here is our programmers are Googlers, they're not researchers..." So the designers believe simpler is more maintainable. 
+
+Readability over writeability - Code should be clear to readers not writers
+
+Simplicity over complexity - Fewer features mean fewer bugs
+
+Explicit over implicit - Nothing magical that's hard to trace
+
+Compilation speed - Minimal features enable fast builds
+
+Source: [Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)
