@@ -1171,8 +1171,11 @@ Source: [Go at Google: Language Design in the Service of Software Engineering](h
 ---
 ![Part 4](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_4.png?raw=true "Part 4")
 
-Function Declaration Syntax
-In Go, functions are declared using the func keyword followed by a name, parameters in parentheses, and optional return types. Functions can accept multiple parameters of different types, and parameters can be grouped that share the same type declaration.
+#Function Declaration Syntax
+
+In Go, functions are declared using the ```func``` keyword followed by a name, parameters in parentheses, and optional return types. Functions can accept multiple parameters of different types, and parameters can be grouped that share the same type declaration.
+
+Go is compiled, so function order doesn't matter. There are no specific function placement rules. Functions can be declared anywhere in the package, above or below a function call.
 
 Source: [Go - Function declarations](https://go.dev/ref/spec#Function_declarations)
 
@@ -1219,7 +1222,7 @@ func getName() (string, string) {
 }
 ```
 
-For flexibility, functions can be created that accept a variable number of arguments using the ... syntax on the final parameter.
+For flexibility, functions can be created that accept a variable number of arguments using the ```...``` syntax on the final parameter.
 
 Source: [Go - Function types](https://go.dev/ref/spec#Function_types)
 
@@ -1248,7 +1251,7 @@ func main() {
 }
 
 ```
-Go also provides helpful features like the defer keyword for cleanup actions.
+Go also provides helpful features like the ```defer``` keyword for cleanup actions.
 
 Source: [Go Blog - Defer, Panic, and Recover](https://go.dev/blog/defer-panic-and-recover)
 
@@ -1259,4 +1262,37 @@ func example() {
 }
 
 ```
+# Function Scope
+
+Unlike Python's function-level scope and Java's block-level scope with hoisting, Go uses strict block-level scope without hoisting, meaning variables exist only within their declared blocks and aren't accessible before they're declared.
+
+### Scope Hierarchy
+
+| Scope Level | Visibility | Lifetime | Unusual Characteristics |
+|-------------|------------|----------|-------------------------|
+| Universe | Predeclared identifiers | Entire program | Built-in types and functions like `int`, `println` |
+| Package | Exported identifiers across files | Entire program | Capitalized names are accessible outside package |
+| File | Imported packages | File duration | Imports are file-scoped, NOT package-wide |
+| Function | Parameters, local variables | Function execution | Can shadow package-level variables |
+| Block | Variables declared in blocks | Block execution | Includes if, for, switch statements, etc. |
+
+Example Code:
+
+```Go
+package main
+import "fmt"
+
+var global = "global"
+
+func main() {
+    local := "local"
+    if true {
+        block := "block"
+        fmt.Println(global, local, block) // Accessible
+    }
+    // fmt.Println(block) // Error: block not accessible
+}
+```
+Source: [Go - Declarations & Scope](https://go.dev/ref/spec#Declarations_and_scope)<br>
+Source: [Effective Go](https://go.dev/doc/effective_go#names)
 
