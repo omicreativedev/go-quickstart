@@ -63,6 +63,19 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 [Limitations](#limitations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
 
+Part 3
+[Start Here](https://github.com/omicreativedev/go-quickstart/tree/main#control-statements-loops-selection-conditionals)
+
+Part 4
+[Function Declaration & Syntax](https://github.com/omicreativedev/go-quickstart/tree/main#function-declaration-syntax)
+[Function Scope](https://github.com/omicreativedev/go-quickstart/tree/main#function-scope)
+[Function Passby](https://github.com/omicreativedev/go-quickstart/tree/main#pass-by)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Side Effects](https://github.com/omicreativedev/go-quickstart/tree/main#side-effects)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Guardrails](https://github.com/omicreativedev/go-quickstart/tree/main#guardrails)
+[Memory Management](https://github.com/omicreativedev/go-quickstart/tree/main#memory-management-stack-vs-heap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Recursive Functions](https://github.com/omicreativedev/go-quickstart/tree/main#recursive-functions)
+
+
 ------------------------
 ![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
 
