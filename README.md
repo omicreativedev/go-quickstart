@@ -1167,3 +1167,96 @@ Explicit over implicit - Nothing magical that's hard to trace
 Compilation speed - Minimal features enable fast builds
 
 Source: [Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)
+
+---
+![Part 4](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_4.png?raw=true "Part 4")
+
+Function Declaration Syntax
+In Go, functions are declared using the func keyword followed by a name, parameters in parentheses, and optional return types. Functions can accept multiple parameters of different types, and parameters can be grouped that share the same type declaration.
+
+Source: [Go - Function declarations](https://go.dev/ref/spec#Function_declarations)
+
+Example with multiple parameters:
+
+```Go
+func add(a int, b int) int {
+    return a + b
+}
+```
+Example with different data types:
+
+```Go
+func printInfo(name string, age int) {
+    fmt.Println(name, age)
+}
+```
+Example with parameters grouped:
+
+```Go
+func multiply(x, y int) int {
+    return x * y
+}
+```
+Go controls visibility through capitalization rules where uppercase names are public and lowercase are private.
+
+Source: [Go Blog](https://go.dev/doc/effective_go#names)
+
+Example:
+
+```Go
+func PublicFunc() {}  // Accessible outside package
+func privateFunc() {} // Accessible in this package
+```
+A special feature of Go is that functions can return multiple values, which should be specified after the parameters, and these return values can be named.
+
+Source: [Go - Function types](https://go.dev/ref/spec#Function_types)
+
+Example returning multiple values at the same time:
+
+```Go
+func getName() (string, string) {
+    return "Sally", "Sue"
+}
+```
+
+For flexibility, functions can be created that accept a variable number of arguments using the ... syntax on the final parameter.
+
+Source: [Go - Function types](https://go.dev/ref/spec#Function_types)
+
+```Go
+func sum(numbers ...int) int {
+    total := 0
+    for _, n := range numbers {
+        total += n
+    }
+    return total
+}
+```
+Functions in Go can be attached to types as methods using receivers, written without names as anonymous functions, and return other functions.
+
+Source: [Go - Method declarations](https://go.dev/ref/spec#Method_declarations)
+
+```Go
+type Rectangle struct { width, height int }
+
+func (r Rectangle) area() int {
+    return r.width * r.height
+}
+
+func main() {
+    square := func(x int) int { return x * x }
+}
+
+```
+Go also provides helpful features like the defer keyword for cleanup actions.
+
+Source: [Go Blog - Defer, Panic, and Recover](https://go.dev/blog/defer-panic-and-recover)
+
+```Go
+func example() {
+    defer fmt.Println("Done")
+    fmt.Println("Working...")
+}
+
+```
+
