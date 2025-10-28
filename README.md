@@ -63,17 +63,6 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 [Limitations](#limitations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
 
-### Part 3
-[Control Statements: Loops, Selections, Conditionals](#control-statements-loops-selection-conditionals)<br/>
-[If/Else](#ifelse)<br/>
-[For Loops](#for-loops)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Continue and Break](#continue-and-break)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Labels](#labels)<br/>
-[Switch Statements](#switch-statements)<br/>
-[Block Delimiting](#block-delimiting)<br/>
-[Short Circuit Evaluation](#short-curcuit-evaluation)<br/>
-[Why is Go Missing Things?](#why-is-go-missing-things)<br/>
-
 ------------------------
 ![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
 
@@ -1178,3 +1167,132 @@ Explicit over implicit - Nothing magical that's hard to trace
 Compilation speed - Minimal features enable fast builds
 
 Source: [Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)
+
+---
+![Part 4](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_4.png?raw=true "Part 4")
+
+#Function Declaration Syntax
+
+In Go, functions are declared using the ```func``` keyword followed by a name, parameters in parentheses, and optional return types. Functions can accept multiple parameters of different types, and parameters can be grouped that share the same type declaration.
+
+Go is compiled, so function order doesn't matter. There are no specific function placement rules. Functions can be declared anywhere in the package, above or below a function call.
+
+Source: [Go - Function declarations](https://go.dev/ref/spec#Function_declarations)
+
+Example with multiple parameters:
+
+```Go
+func add(a int, b int) int {
+    return a + b
+}
+```
+Example with different data types:
+
+```Go
+func printInfo(name string, age int) {
+    fmt.Println(name, age)
+}
+```
+Example with parameters grouped:
+
+```Go
+func multiply(x, y int) int {
+    return x * y
+}
+```
+Go controls visibility through capitalization rules where uppercase names are public and lowercase are private.
+
+Source: [Go Blog](https://go.dev/doc/effective_go#names)
+
+Example:
+
+```Go
+func PublicFunc() {}  // Accessible outside package
+func privateFunc() {} // Accessible in this package
+```
+A special feature of Go is that functions can return multiple values, which should be specified after the parameters, and these return values can be named.
+
+Source: [Go - Function types](https://go.dev/ref/spec#Function_types)
+
+Example returning multiple values at the same time:
+
+```Go
+func getName() (string, string) {
+    return "Sally", "Sue"
+}
+```
+
+For flexibility, functions can be created that accept a variable number of arguments using the ```...``` syntax on the final parameter.
+
+Source: [Go - Function types](https://go.dev/ref/spec#Function_types)
+
+```Go
+func sum(numbers ...int) int {
+    total := 0
+    for _, n := range numbers {
+        total += n
+    }
+    return total
+}
+```
+Functions in Go can be attached to types as methods using receivers, written without names as anonymous functions, and return other functions.
+
+Source: [Go - Method declarations](https://go.dev/ref/spec#Method_declarations)
+
+```Go
+type Rectangle struct { width, height int }
+
+func (r Rectangle) area() int {
+    return r.width * r.height
+}
+
+func main() {
+    square := func(x int) int { return x * x }
+}
+
+```
+Go also provides helpful features like the ```defer``` keyword for cleanup actions.
+
+Source: [Go Blog - Defer, Panic, and Recover](https://go.dev/blog/defer-panic-and-recover)
+
+```Go
+func example() {
+    defer fmt.Println("Done")
+    fmt.Println("Working...")
+}
+
+```
+# Function Scope
+
+Unlike Python's function-level scope and Java's block-level scope with hoisting, Go uses strict block-level scope without hoisting, meaning variables exist only within their declared blocks and aren't accessible before they're declared.
+
+### Scope Hierarchy
+
+| Scope Level | Visibility | Lifetime | Unusual Characteristics |
+|-------------|------------|----------|-------------------------|
+| Universe | Predeclared identifiers | Entire program | Built-in types and functions like `int`, `println` |
+| Package | Exported identifiers across files | Entire program | Capitalized names are accessible outside package |
+| File | Imported packages | File duration | Imports are file-scoped, NOT package-wide |
+| Function | Parameters, local variables | Function execution | Can shadow package-level variables |
+| Block | Variables declared in blocks | Block execution | Includes if, for, switch statements, etc. |
+
+Example Code:
+
+```Go
+package main
+import "fmt"
+
+var global = "global"
+
+func main() {
+    local := "local"
+    if true {
+        block := "block"
+        fmt.Println(global, local, block) // Accessible
+    }
+    // fmt.Println(block) // Error: block not accessible
+}
+```
+Source: [Go - Declarations & Scope](https://go.dev/ref/spec#Declarations_and_scope)<br>
+Source: [Effective Go](https://go.dev/doc/effective_go#names)
+
