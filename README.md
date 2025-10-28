@@ -63,17 +63,17 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 [Limitations](#limitations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
 
-Part 3
+Part 3<br>
 [Start Here](https://github.com/omicreativedev/go-quickstart/tree/main#control-statements-loops-selection-conditionals)
 
 Part 4
-[Function Declaration & Syntax](https://github.com/omicreativedev/go-quickstart/tree/main#function-declaration-syntax)
-[Function Scope](https://github.com/omicreativedev/go-quickstart/tree/main#function-scope)
-[Function Passby](https://github.com/omicreativedev/go-quickstart/tree/main#pass-by)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Side Effects](https://github.com/omicreativedev/go-quickstart/tree/main#side-effects)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Guardrails](https://github.com/omicreativedev/go-quickstart/tree/main#guardrails)
-[Memory Management](https://github.com/omicreativedev/go-quickstart/tree/main#memory-management-stack-vs-heap)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Recursive Functions](https://github.com/omicreativedev/go-quickstart/tree/main#recursive-functions)
+[Function Declaration & Syntax](https://github.com/omicreativedev/go-quickstart/tree/main#function-declaration-syntax)<br>
+[Function Scope](https://github.com/omicreativedev/go-quickstart/tree/main#function-scope)<br>
+[Function Passby](https://github.com/omicreativedev/go-quickstart/tree/main#pass-by)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Side Effects](https://github.com/omicreativedev/go-quickstart/tree/main#side-effects)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Guardrails](https://github.com/omicreativedev/go-quickstart/tree/main#guardrails)<br>
+[Memory Management](https://github.com/omicreativedev/go-quickstart/tree/main#memory-management-stack-vs-heap)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Recursive Functions](https://github.com/omicreativedev/go-quickstart/tree/main#recursive-functions)<br>
 
 
 ------------------------
