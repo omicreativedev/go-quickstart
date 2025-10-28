@@ -1171,7 +1171,7 @@ Source: [Go at Google: Language Design in the Service of Software Engineering](h
 ---
 ![Part 4](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_4.png?raw=true "Part 4")
 
-#Function Declaration Syntax
+# Function Declaration Syntax
 
 In Go, functions are declared using the ```func``` keyword followed by a name, parameters in parentheses, and optional return types. Functions can accept multiple parameters of different types, and parameters can be grouped that share the same type declaration.
 
@@ -1279,9 +1279,6 @@ Unlike Python's function-level scope and Java's block-level scope with hoisting,
 Example Code:
 
 ```Go
-package main
-import "fmt"
-
 var global = "global"
 
 func main() {
@@ -1296,3 +1293,109 @@ func main() {
 Source: [Go - Declarations & Scope](https://go.dev/ref/spec#Declarations_and_scope)<br>
 Source: [Effective Go](https://go.dev/doc/effective_go#names)
 
+# Pass By
+
+Go is pass-by-value by default. When you pass arguments to functions, Go creates copies of the values. When you pass pointers, slices, maps, or channels, you're copying the reference, allowing modification of the original data.
+
+Source: [Go FAQ - Functions](https://go.dev/doc/faq#pass_by_value)
+
+Pass-by-Value
+```Go
+func doubleValue(x int) {
+    x = x * 2
+}
+
+func main() {
+    num := 5
+    doubleValue(num)
+    fmt.Println(num) // 5 - unchanged
+}
+```
+
+Pass-by-Reference
+
+```Go
+func doubleReference(x *int) {
+    *x = *x * 2
+}
+
+func main() {
+    num := 5
+    doubleReference(&num)
+    fmt.Println(num) // 10 - modified
+}
+```
+
+### Side Effects
+
+Side effects occur when functions modify data outside their local scope. Go allows side effects through pointers, but provides protection with arrays by passing them as copies. This prevents accidental modifications to original array data.
+
+```Go
+package main
+import "fmt"
+
+func main() {
+    nums := [3]int{1, 2, 3}
+    modifyArray(nums)
+    fmt.Println(nums) // [1 2 3] - unchanged
+}
+
+func modifyArray(arr [3]int) {
+    arr[0] = 99
+    fmt.Println(arr) // [99 2 3] - only local copy changed
+}
+```
+Source: [Go - Assignments](https://go.dev/ref/spec#Assignments)
+
+### Guardrails
+
+Go has built-in protections against side effects through its pass-by-value behavior for basic types and arrays. When you pass arrays and basic types to functions, Go creates copies, preventing accidental modifications to the original data.
+
+```Go
+package main
+import "fmt"
+
+func main() {
+    data := [2]int{1, 2}
+    update(data)       // Array is copied
+    fmt.Println(data)  // [1 2] NOT changes
+}
+
+func update(d [2]int) {
+    d[0] = 99         // Modifies only the copy
+}
+```
+# Memory Management: Stack vs Heap 
+
+Go automatically manages memory using two primary areas: the stack and the heap. The stack provides fast access for short-lived data like function arguments and local variables, while the heap stores data that needs to persist longer or is shared across function boundaries. Go uses escape analysis to determine where to store variables. If a variable's lifetime extends beyond its function, it "escapes" to the heap.
+
+Function Storage:
+
+- Stack: Function arguments, parameters, return addresses, and most local variables
+- Heap: Data that escapes function scope, large allocations, and shared data
+
+During Execution:
+
+- Local Variables: Typically on stack, unless returned or shared (then heap)
+- Arguments: Copied onto stack when function is called
+- Parameters: Stored on stack as local variables within the function
+
+Source: [Go Blog - Escape Analysis](https://go.dev/doc/faq#stack_or_heap)
+Source: [Go Memory Management](https://go.dev/doc/effective_go#memory)
+
+### Recursive Functions
+
+Recursive functions are functions that call themselves to solve smaller instances of the same problem. Each recursive call creates a new stack frame with its own parameters and local variables. 
+```Go
+func factorial(n int) int {
+    if n <= 1 {
+        return 1  // Base case stops recursion
+    }
+    return n * factorial(n-1)  // Recursive call
+}
+
+func main() {
+    result := factorial(5)
+    fmt.Println(result) 
+}
+```
