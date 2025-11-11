@@ -64,7 +64,15 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
 
 Part 3<br>
-[Start Here](https://github.com/omicreativedev/go-quickstart/tree/main#control-statements-loops-selection-conditionals)
+[Control Statements: Loops, Selection, Conditionals](https://github.com/omicreativedev/go-quickstart/tree/main#control-statements-loops-selection-conditionals)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[If/Else](https://github.com/omicreativedev/go-quickstart/tree/main#ifelse)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[For Loops](https://github.com/omicreativedev/go-quickstart/tree/main#for-loops)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Continue and Break](https://github.com/omicreativedev/go-quickstart/tree/main#continue-and-break)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Labels](https://github.com/omicreativedev/go-quickstart/tree/main#labels)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Switch Statements](https://github.com/omicreativedev/go-quickstart/tree/main#switch-statements)<br>
+[Block Delimiting](https://github.com/omicreativedev/go-quickstart/tree/main#block-delimiting)<br>
+[Short Circuit Evaluation](https://github.com/omicreativedev/go-quickstart/tree/main#short-curcuit-evaluation)<br>
+[Why is Go Missing Things?](https://github.com/omicreativedev/go-quickstart/tree/main#why-is-go-missing-things)<br>
 
 Part 4
 [Function Declaration & Syntax](https://github.com/omicreativedev/go-quickstart/tree/main#function-declaration-syntax)<br>
