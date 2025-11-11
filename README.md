@@ -74,7 +74,7 @@ Part 3<br>
 [Short Circuit Evaluation](https://github.com/omicreativedev/go-quickstart/tree/main#short-curcuit-evaluation)<br>
 [Why is Go Missing Things?](https://github.com/omicreativedev/go-quickstart/tree/main#why-is-go-missing-things)<br>
 
-Part 4
+Part 4<br>
 [Function Declaration & Syntax](https://github.com/omicreativedev/go-quickstart/tree/main#function-declaration-syntax)<br>
 [Function Scope](https://github.com/omicreativedev/go-quickstart/tree/main#function-scope)<br>
 [Function Passby](https://github.com/omicreativedev/go-quickstart/tree/main#pass-by)<br>
