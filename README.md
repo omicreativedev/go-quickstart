@@ -1419,7 +1419,7 @@ func main() {
 ![Part 5](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_5.png?raw=true "Part 5")
 # Go Programming Language Approach to Objects
 
- Go uses structs as the primary building blocks for creating object-like data structures, and it uses methods that can be associated with any type (including structs). Structs are declared with the keywords ```type``` and ````struct```. The dot operator ```.``` can be used to access struct attributes and methods.
+ Go uses structs as the primary building blocks for creating object-like data structures, and it uses methods that can be associated with any type (including structs). Structs are declared with the keywords ```type``` and ```struct```. The dot operator ```.``` can be used to access struct attributes and methods.
 
 ``` Go
 type Person struct {
