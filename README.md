@@ -75,6 +75,9 @@ Part 4
 [Memory Management](https://github.com/omicreativedev/go-quickstart/tree/main#memory-management-stack-vs-heap)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Recursive Functions](https://github.com/omicreativedev/go-quickstart/tree/main#recursive-functions)<br>
 
+Part 5<br>
+[Start Here](https://github.com/omicreativedev/go-quickstart/blob/main/README.md#go-programming-language-approach-to-objects)
+
 
 ------------------------
 ![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
