@@ -1427,7 +1427,7 @@ func main() {
 ![Part 5](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_5.png?raw=true "Part 5")
 # Go Programming Language Approach to Objects
 
- Go uses structs as the primary building blocks for creating object-like data structures, and it uses methods that can be associated with any type (including structs). Structs are declared with the keywords ```type``` and ```struct```. The dot operator ```.``` can be used to access struct attributes and methods.
+Go uses structs as the primary building blocks for creating object-like data structures, and it uses methods that can be associated with any type (including structs). Structs are declared with the keywords ```type``` and ```struct```. The dot operator ```.``` can be used to access struct attributes and methods.
 
 ``` Go
 type Person struct {
@@ -1444,3 +1444,196 @@ func (p Person) Introduce() string {
     return fmt.Sprintf("Hello, I'm %s and I'm %d years old", p.FullName(), p.Age)
 }
 ```
+### Naming Conventions
+
+- Structs/Types: **PascalCase** such as ```Person``` or ```HttpClient```
+- Fields/Methods: **PascalCase** for exported (public) fields/methods and **camelCase** for unexported (private) ones
+- Methods: Same naming convention as [functions](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_4.png?raw=true "Part 4")
+- Packages: lowercase, single-word names
+
+# Standard Methods in Go
+
+Go does NOT have a set of standard methods that are automatically available on all types like Java or C# do. Go instead uses interfaces to define standard behaviors that types can implement optionally. Different than traditional OOP like Java, interface implementation is implicit. Types don't declare what interfaces they implement. They just need to have the required methods. And the compiler verifies interface implementation at compile time. Some examples are:
+
+### Stringer
+
+Stringer interface is the toString() Equivalent in Go.
+
+```
+// This is a built-in interface in the fmt package
+type Stringer interface {
+    String() string
+}
+
+type Person struct {
+    Name string
+    Age  int
+}
+
+// Person OPTIONALLY implements Stringer
+func (p Person) String() string {
+    return fmt.Sprintf("Person{Name: %s, Age: %d}", p.Name, p.Age)
+}
+```
+
+### Error
+
+Error is used for standard error handling.
+
+```
+// Standard interface for errors
+type error interface {
+    Error() string
+}
+
+// Custom error struct type
+type ValidationError struct {
+    Field   string
+    Message string
+}
+
+// Using the error interface
+func (v ValidationError) Error() string {
+    return fmt.Sprintf("validation error on %s: %s", v.Field, v.Message)
+}
+```
+
+### Reader / Writer
+
+```
+// This is in io package
+type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}
+```
+### Functions vs. Methods in Go
+
+| Aspect | Function | Method |
+|--------|----------|---------|
+| **Declaration** | `func FunctionName(params)` | `func (receiver) MethodName(params)` |
+| **Calling** | `FunctionName(args)` | `variable.MethodName(args)` |
+| **Association** | Standalone | Associated with a type |
+
+#Inheritance
+
+Go doesn't have classical inheritance. Instead, it uses composition which is embedding one struct within another, and interfaces for defining behavior contracts. Go deliberately avoids multiple inheritance to keep the language simple. However, Go can achieve similar effects through implementing multiple interfaces, and multiple struct embedding through careful design. 
+
+```
+type Animal struct {
+    Name string
+}
+
+type Dog struct {
+    Animal  // Embedding for mock inheritance
+    Breed  string
+}
+```
+
+### Mock Multiple Inheritance
+
+```
+package main
+
+import "fmt"
+
+// This is the base type
+type Writer struct {
+    Tool string
+}
+
+func (w Writer) Write() string {
+    return "Writing with " + w.Tool // A method for the writer to write with a tool
+}
+
+// Another base type
+type Speaker struct {
+    Language string
+}
+
+func (s Speaker) Speak() string {
+    return "Speaking " + s.Language 
+}
+
+// Mock multiple inheritance
+type Author struct { // Make an Author
+    Writer   // An Author is a writer
+    Speaker  // The Author is also a speaker
+    Books    int // custom field
+}
+
+func main() {
+    author := Author{
+        Writer:  Writer{Tool: "pen"}, // This author writes with a pen
+        Speaker: Speaker{Language: "English"}, // This author speaks english
+        Books:   5, // This author has 5 books
+    }
+    
+  	// Print it out
+    fmt.Println(author.Write())   // From Writer
+    fmt.Println(author.Speak())   // From Speaker
+    // The custom field
+    fmt.Println("Books:", author.Books)
+}
+```
+### Overloading Method Names
+
+Go doesn't support method overloading  such as multiple methods with the same name but different parameters. It handles method overriding through embedding.
+
+```
+type Base struct {
+    Value string
+}
+
+func (b Base) Display() string {
+    return "Base: " + b.Value
+}
+
+type Derived struct {
+    Base
+    Extra string
+}
+
+// This overrides the Base method
+func (d Derived) Display() string {
+    return "Derived: " + d.Value + ", Extra: " + d.Extra
+}
+```
+#  Value vs Pointer Receivers
+
+Value receivers operate on a duplicate copy of the object. This means any modifications made within the method only affect the temporary copy. The copy is erased once the method completes. In contrast, pointer receivers, work directly on the original object's memory location, so any changes the method makes **will permanently alter** the actual object itself. This important difference means it's convention to use value receivers when you only need to read or compute from the data which also makes things safer. Use pointer receivers when you need the method to update the object's state persistently.
+
+```
+type Counter struct {
+    count int
+}
+
+// Value receiver works on a copy
+func (c Counter) IncrementValue() {
+    c.count++ // THIS ONLY CHANGES THE COPY
+}
+
+// Pointer receiver works on the ORIGINAL
+func (c *Counter) IncrementPointer() {
+    c.count++ // WARNING! Changes the actual object!!!
+}
+
+func main() {
+    c := Counter{count: 0}
+    
+    c.IncrementValue()
+    fmt.Println(c.count) // 0 (unchanged)
+    
+    c.IncrementPointer() 
+    fmt.Println(c.count) // 1 (changed)
+}
+```
+
+# Other Considerations
+
+- Go doesn't have classes. Instead, you can attach methods to any type: structs, basic types, etc.
+- A type automatically implements an interface if it has all the required methods and no explicit declaration is needed
+- The empty interface like interface{} can hold any type, similar to Object in Java.
