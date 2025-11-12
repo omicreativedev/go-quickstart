@@ -8,31 +8,24 @@ Credits:
 
 Side by Side Markdown Editor: [Dillinger.io](https://dillinger.io/)
 
-Hosting: [Render.com](https://render.com/) _Free Tier_
-
 ------------------------
 # Table of Contents
 
 ### Part 1
-
 [History of the Go Programming Language](#history-of-the-go-programming-language)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Important Features of Go](#important-features-of-go)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[What is Go good for?](#what-is-go-good-for)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Famous Projects Created with Go](#famous-projects-created-with-go)<br>
-<br>
 [Installation and Setup](#installation-and-setup)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Installing Go](#installing-go)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Choosing an IDE](#choosing-an-ide)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Installing VSCode Go Extension](#installing-vscode-go-extension)<br>
-<br>
 [Creating Your First Go Project in VSCode](#creating-your-first-go-project-in-vscode)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hello World!](#creating-your-first-go-project-in-vscode)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Commenting Your Code](#commenting-your-code)<br>
+[Go Learning Resources](#go-learning-resources)
 <br>
-[Go Learning Resources](#go-learning-resources)<br>
-
 ### Part 2
-
 [Type System and Variable Semantics](#type-system-and-variable-semantics)<br>
 [Data Types](#data-types)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Basic Types](#basic-types)<br>
@@ -46,7 +39,6 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Interface Types](#interface-types)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Complex Types](#complex-types)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Type Conversion](#type-conversion)<br>
-<br>
 [Syntax](#syntax)<br>
 [Reserved Words](#reserved-words)<br>
 [Variable Naming Requirements & Conventions](#variable-naming-requirements--conventions)<br>
@@ -59,11 +51,10 @@ Hosting: [Render.com](https://render.com/) _Free Tier_
 [Binding](#binding)<br>
 [Storage, Addresses and Lifetime](#storage-addresses-and-lifetime)<br>
 [Scope](#scope)<br>
-<br>
 [Limitations](#limitations)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pitfalls](#pitfalls)
-
-Part 3<br>
+<br>
+### Part 3<br>
 [Control Statements: Loops, Selection, Conditionals](https://github.com/omicreativedev/go-quickstart/tree/main#control-statements-loops-selection-conditionals)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[If/Else](https://github.com/omicreativedev/go-quickstart/tree/main#ifelse)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[For Loops](https://github.com/omicreativedev/go-quickstart/tree/main#for-loops)<br>
@@ -72,19 +63,30 @@ Part 3<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Switch Statements](https://github.com/omicreativedev/go-quickstart/tree/main#switch-statements)<br>
 [Block Delimiting](https://github.com/omicreativedev/go-quickstart/tree/main#block-delimiting)<br>
 [Short Circuit Evaluation](https://github.com/omicreativedev/go-quickstart/tree/main#short-curcuit-evaluation)<br>
-[Why is Go Missing Things?](https://github.com/omicreativedev/go-quickstart/tree/main#why-is-go-missing-things)<br>
-
-Part 4<br>
+[Why is Go Missing Things?](https://github.com/omicreativedev/go-quickstart/tree/main#why-is-go-missing-things)
+<br>
+### Part 4<br>
 [Function Declaration & Syntax](https://github.com/omicreativedev/go-quickstart/tree/main#function-declaration-syntax)<br>
 [Function Scope](https://github.com/omicreativedev/go-quickstart/tree/main#function-scope)<br>
 [Function Passby](https://github.com/omicreativedev/go-quickstart/tree/main#pass-by)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Side Effects](https://github.com/omicreativedev/go-quickstart/tree/main#side-effects)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Guardrails](https://github.com/omicreativedev/go-quickstart/tree/main#guardrails)<br>
 [Memory Management](https://github.com/omicreativedev/go-quickstart/tree/main#memory-management-stack-vs-heap)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Recursive Functions](https://github.com/omicreativedev/go-quickstart/tree/main#recursive-functions)<br>
-
-Part 5<br>
-[Start Here](https://github.com/omicreativedev/go-quickstart/blob/main/README.md#go-programming-language-approach-to-objects)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Recursive Functions](https://github.com/omicreativedev/go-quickstart/tree/main#recursive-functions)
+<br>
+### Part 5<br>
+[Objects in Go](https://github.com/omicreativedev/go-quickstart/tree/main#go-programming-language-approach-to-objects)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Naming Conventions](https://github.com/omicreativedev/go-quickstart/tree/main#naming-conventions)<br>
+[Standard Methods](https://github.com/omicreativedev/go-quickstart/tree/main#standard-methods-in-go)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stringer](https://github.com/omicreativedev/go-quickstart/tree/main#stringer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Error](https://github.com/omicreativedev/go-quickstart/tree/main#error)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Reader/Writer](https://github.com/omicreativedev/go-quickstart/tree/main#reader--writer)<br>
+[Functions vs Methods](https://github.com/omicreativedev/go-quickstart/tree/main#functions-vs-methods-in-go)<br>
+[Mock Inheritance](https://github.com/omicreativedev/go-quickstart/tree/main#inheritance)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Mock Multiple Inheritance](https://github.com/omicreativedev/go-quickstart/tree/main#mock-multiple-inheritance)<br>
+[Overloading Method Names](https://github.com/omicreativedev/go-quickstart/tree/main#overloading-method-names)<br>
+[Value vs Pointer Receivers](https://github.com/omicreativedev/go-quickstart/tree/main#value-vs-pointer-receivers)<br>
+[Other Considerations](https://github.com/omicreativedev/go-quickstart/tree/main#other-considerations)<br>
 
 
 ------------------------
