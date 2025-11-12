@@ -1444,18 +1444,18 @@ func (p Person) Introduce() string {
     return fmt.Sprintf("Hello, I'm %s and I'm %d years old", p.FullName(), p.Age)
 }
 ```
-### Naming Conventions
+#### Naming Conventions
 
 - Structs/Types: **PascalCase** such as ```Person``` or ```HttpClient```
 - Fields/Methods: **PascalCase** for exported (public) fields/methods and **camelCase** for unexported (private) ones
 - Methods: Same naming convention as [functions](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_4.png?raw=true "Part 4")
 - Packages: lowercase, single-word names
 
-# Standard Methods in Go
+### Standard Methods in Go
 
 Go does NOT have a set of standard methods that are automatically available on all types like Java or C# do. Go instead uses interfaces to define standard behaviors that types can implement optionally. Different than traditional OOP like Java, interface implementation is implicit. Types don't declare what interfaces they implement. They just need to have the required methods. And the compiler verifies interface implementation at compile time. Some examples are:
 
-### Stringer
+#### Stringer
 
 Stringer interface is the toString() Equivalent in Go.
 
@@ -1476,7 +1476,7 @@ func (p Person) String() string {
 }
 ```
 
-### Error
+#### Error
 
 Error is used for standard error handling.
 
@@ -1498,7 +1498,7 @@ func (v ValidationError) Error() string {
 }
 ```
 
-### Reader / Writer
+#### Reader / Writer
 
 ```
 // This is in io package
@@ -1518,7 +1518,7 @@ type Writer interface {
 | **Calling** | `FunctionName(args)` | `variable.MethodName(args)` |
 | **Association** | Standalone | Associated with a type |
 
-#Inheritance
+### Inheritance
 
 Go doesn't have classical inheritance. Instead, it uses composition which is embedding one struct within another, and interfaces for defining behavior contracts. Go deliberately avoids multiple inheritance to keep the language simple. However, Go can achieve similar effects through implementing multiple interfaces, and multiple struct embedding through careful design. 
 
@@ -1602,7 +1602,7 @@ func (d Derived) Display() string {
     return "Derived: " + d.Value + ", Extra: " + d.Extra
 }
 ```
-#  Value vs Pointer Receivers
+###  Value vs Pointer Receivers
 
 Value receivers operate on a duplicate copy of the object. This means any modifications made within the method only affect the temporary copy. The copy is erased once the method completes. In contrast, pointer receivers, work directly on the original object's memory location, so any changes the method makes **will permanently alter** the actual object itself. This important difference means it's convention to use value receivers when you only need to read or compute from the data which also makes things safer. Use pointer receivers when you need the method to update the object's state persistently.
 
@@ -1632,7 +1632,7 @@ func main() {
 }
 ```
 
-# Other Considerations
+### Other Considerations
 
 - Go doesn't have classes. Instead, you can attach methods to any type: structs, basic types, etc.
 - A type automatically implements an interface if it has all the required methods and no explicit declaration is needed
