@@ -88,7 +88,9 @@ Side by Side Markdown Editor: [Dillinger.io](https://dillinger.io/)
 [Value vs Pointer Receivers](https://github.com/omicreativedev/go-quickstart/tree/main#value-vs-pointer-receivers)<br>
 [Other Considerations](https://github.com/omicreativedev/go-quickstart/tree/main#other-considerations)<br>
 
-
+### Part 6<br>
+Big Project: 
+[https://github.com/omicreativedev/TunePeep](https://github.com/omicreativedev/TunePeep)
 ------------------------
 ![Part 1](https://github.com/omicreativedev/go-quickstart/blob/main/images/part_1.png?raw=true "Part 1")
 
